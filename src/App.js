@@ -10,7 +10,7 @@ import Portfolio from "./Pages/Portfolio/Portfolio";
 import { LanguageContext } from "./LanguageContext";
 import { ThemeContext } from "./ThemeContext";
 import React, { useState, useEffect } from "react";
-import arrowHome from "./arrow_button.png";
+import arrowHome from "./assets/icons8-down-arrow-50.png";
 
 function App() {
   const [language, setLanguage] = useState("ge");

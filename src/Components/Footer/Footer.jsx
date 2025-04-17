@@ -71,7 +71,7 @@ const Footer = () => {
         <div className="lastFooter">
           <h2>BUSINESS</h2>
           <div className="mailPhone">
-            <a href="mailto:Hello@blueprintstudio.ge">
+            <a href="mailto:Hello@ezobana.ge">
               Hello@blueprintstudio.ge
             </a>
             <a href="tel:+995577406409">+995 577 406 409</a>

@@ -3,9 +3,10 @@
   justify-content: space-between;
   align-items: center;
   background: antiquewhite;
-  padding: 50px 24px 50px 24px;
+  padding: clamp(15px, 4vw, 50px) clamp(15px, 4vw, 50px);
   width: 100%;
   z-index: 6;
+  position: relative;
 }
 
 .headerOverlay {
@@ -14,23 +15,29 @@
   align-items: center;
   width: 100%;
 }
+
 .icons {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .headerIcons {
   display: flex;
   justify-content: space-between;
 }
 
 .logo {
-  width: 120px;
+  width: clamp(120px, 10vw, 180px);
   height: auto;
   cursor: pointer;
-  position: absolute;
-  top: -15px;
+  position: relative;
   z-index: 6;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 .icons {
@@ -64,6 +71,7 @@
 .invisible {
   display: none;
 }
+
 .lightMode:hover,
 .darkMode:hover,
 .home:hover,
@@ -80,17 +88,19 @@
 
 .desktop-links {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
-  gap: 30px;
+  gap: clamp(10px, 2vw, 30px);
 }
 
 .desktop-links li a {
   color: #d96caa;
   text-decoration: none;
-  font-size: 1.8vw;
+  font-size: clamp(18px, 2.5vw, 28px); /* Increased font size */
   font-weight: 800;
   transition: all 0.3s ease;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .desktop-links li a:hover,
@@ -101,12 +111,9 @@
 }
 
 .desktop-lang-switcher {
-  /* position: absolute;
-  right: -70px;
-  top: 0; */
   display: flex;
-  gap: 15px;
-  margin-left: 30px;
+  gap: clamp(8px, 1vw, 15px);
+  margin-left: clamp(10px, 2vw, 30px);
 }
 
 .desktop-lang-switcher div {
@@ -115,8 +122,9 @@
 
 .desktop-lang-switcher p {
   color: #d96caa;
-  font-size: 1.8vw;
+  font-size: clamp(18px, 2.5vw, 28px); /* Increased font size */
   font-weight: 800;
+  white-space: nowrap;
 }
 
 .desktop-lang-switcher div:hover p {
@@ -129,27 +137,66 @@
 }
 
 /* Responsive Layout */
-@media screen and (min-width: 375px) {
+@media screen and (max-width: 374px) {
   .logo {
-    width: 160px;
-    top: 10px;
+    width: 100px;
+  }
+
+  .desktop-links li a,
+  .desktop-lang-switcher p {
+    font-size: clamp(16px, 4.5vw, 20px); /* Increased font size */
+  }
+
+  .headerPage {
+    padding: 10px;
   }
 }
 
-@media screen and (max-height: 500px) {
-  .logo {
-    width: 120px;
+@media screen and (max-width: 1199px) {
+  .desktop-links li a {
+    font-size: clamp(
+      14px,
+      1.8vw,
+      20px
+    ); /* Smaller font size to avoid wrapping */
+  }
+
+  .desktop-lang-switcher p {
+    font-size: clamp(
+      14px,
+      1.8vw,
+      20px
+    ); /* Smaller font size to avoid wrapping */
+  }
+
+  .desktop-links {
+    gap: clamp(8px, 1.2vw, 18px); /* Reduced gap between menu items */
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .desktop-links li a {
+    font-size: clamp(
+      12px,
+      1.6vw,
+      16px
+    ); /* Even smaller for this problematic range */
+  }
+
+  .desktop-lang-switcher p {
+    font-size: clamp(
+      12px,
+      1.6vw,
+      16px
+    ); /* Even smaller for this problematic range */
+  }
+
+  .desktop-links {
+    gap: clamp(5px, 1vw, 12px); /* Minimal gap to save space */
   }
 }
 
 @media screen and (min-width: 768px) {
-  .logo {
-    left: 40px;
-    top: 0;
-  }
-}
-
-@media screen and (min-width: 1024px) {
   .mobile-menu {
     display: none;
   }
@@ -157,24 +204,95 @@
   .desktop-menu {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+    width: 80%;
   }
 
   .logo {
     position: relative;
-    left: 0;
+    top: 0;
+    width: clamp(120px, 15vw, 160px);
   }
 
   .headerPage {
-    padding: 30px 50px;
+    padding: 20px clamp(20px, 4vw, 50px);
+  }
+
+  .desktop-links {
+    gap: clamp(15px, 1.5vw, 30px);
+  }
+
+  .desktop-links li a {
+    font-size: clamp(13px, 1.7vw, 18px); /* Reduced size */
+  }
+
+  .desktop-lang-switcher p {
+    font-size: clamp(13px, 1.7vw, 18px); /* Reduced size */
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .desktop-links {
+    gap: clamp(20px, 2vw, 40px);
+  }
+
+  .desktop-links li a {
+    font-size: clamp(15px, 1.8vw, 22px); /* Slightly reduced size */
+  }
+
+  .desktop-lang-switcher p {
+    font-size: clamp(15px, 1.8vw, 22px); /* Slightly reduced size */
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .desktop-links {
-    gap: 40px;
+  .headerPage {
+    padding: 25px clamp(25px, 4vw, 60px);
   }
 
-  /* .desktop-links li a {
-    font-size: 18px;
-  } */
+  .desktop-links {
+    gap: clamp(25px, 2vw, 40px);
+  }
+
+  .desktop-links li a {
+    font-size: clamp(22px, 1.8vw, 30px); /* Increased font size */
+  }
+
+  .desktop-lang-switcher p {
+    font-size: clamp(22px, 1.8vw, 30px); /* Increased font size */
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .headerPage {
+    padding: 30px clamp(30px, 5vw, 70px);
+  }
+
+  .logo {
+    width: clamp(140px, 10vw, 180px);
+  }
+
+  .desktop-links {
+    gap: clamp(35px, 2.5vw, 55px); /* Increased spacing for larger text */
+  }
+
+  .desktop-links li a {
+    font-size: clamp(24px, 1.7vw, 32px); /* Increased font size */
+  }
+
+  .desktop-lang-switcher p {
+    font-size: clamp(24px, 1.7vw, 32px); /* Increased font size */
+  }
+}
+
+/* Fix for very wide screens */
+@media screen and (min-width: 1800px) {
+  .desktop-links li a,
+  .desktop-lang-switcher p {
+    font-size: clamp(26px, 1.5vw, 36px); /* Increased font size */
+  }
+
+  .desktop-links {
+    gap: clamp(50px, 3vw, 70px); /* Increased spacing */
+  }
 }

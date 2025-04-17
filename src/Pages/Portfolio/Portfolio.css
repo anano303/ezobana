@@ -1,0 +1,291 @@
+.portfolio {
+  background-color: antiquewhite;
+  padding: 15vh 6vw 11.5vh 10vw;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+/* Playful background elements */
+.portfolio::before {
+  content: "🎨";
+  font-size: 7rem;
+  position: absolute;
+  top: 5%;
+  right: 10%;
+  opacity: 0.07;
+  z-index: 0;
+  animation: float 8s ease-in-out infinite;
+}
+
+.portfolio::after {
+  content: "🎭";
+  font-size: 7rem;
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  opacity: 0.07;
+  z-index: 0;
+  animation: float 10s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+.portfolio-title {
+  font-size: 56px;
+  font-weight: 700;
+  color: #d96caa;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+}
+
+.portfolio-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 80%;
+  height: 5px;
+  background: linear-gradient(90deg, #d96caa 0%, #169f49 100%);
+  border-radius: 10px;
+}
+
+.workshops-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.workshop-item {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add playful patterns to workshop cards */
+.workshop-item:nth-child(1)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 20% 50%,
+    rgba(217, 108, 170, 0.05) 0%,
+    transparent 25%
+  );
+  z-index: 0;
+}
+
+.workshop-item:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 80% 20%,
+    rgba(22, 159, 73, 0.05) 0%,
+    transparent 25%
+  );
+  z-index: 0;
+}
+
+.workshop-item:nth-child(3)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(217, 108, 170, 0.05) 0%,
+    transparent 50%
+  );
+  z-index: 0;
+}
+
+.workshop-item:nth-child(4)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(22, 159, 73, 0.05) 0%,
+    transparent 50%
+  );
+  z-index: 0;
+}
+
+.workshop-item:nth-child(5)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(217, 108, 170, 0.03) 0%,
+    rgba(22, 159, 73, 0.03) 50%,
+    transparent 70%
+  );
+  z-index: 0;
+}
+
+.workshop-item:hover {
+  transform: translateY(-8px) rotate(0.5deg);
+  box-shadow: 0 15px 30px rgba(217, 108, 170, 0.2);
+}
+
+.workshop-emoji {
+  font-size: 4rem;
+  min-width: 90px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.workshop-item:hover .workshop-emoji {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.workshop-content {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  gap: 5%;
+  display: flex;
+  align-items: center;
+}
+
+.workshop-content h3 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.workshop-content h3::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #169f49;
+  transition: width 0.4s ease;
+  border-radius: 2px;
+}
+
+.workshop-item:hover .workshop-content h3::after {
+  width: 100%;
+}
+
+.workshop-button {
+  background-color: #d96caa;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.workshop-button:hover {
+  background-color: #169f49;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(22, 159, 73, 0.3);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .portfolio {
+    padding: 12vh 5vw 8vh 5vw;
+  }
+
+  .portfolio-title {
+    font-size: 42px;
+  }
+
+  .workshop-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .workshop-emoji {
+    margin-bottom: 20px;
+  }
+
+  .workshop-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .workshop-content h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .portfolio::before,
+  .portfolio::after {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .workshops-container {
+    padding: 0 5vw;
+  }
+
+  .workshop-item {
+    padding: 35px;
+  }
+
+  .workshop-content h3 {
+    font-size: 2rem;
+  }
+
+  .workshop-button {
+    padding: 12px 25px;
+    font-size: 18px;
+  }
+}

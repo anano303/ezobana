@@ -141,15 +141,15 @@
   flex-direction: column;
 }
 
-/* Hide desktop menu on small screens */
-@media screen and (min-width: 1024px) {
+/* Hide mobile menu on tablets and desktop */
+@media screen and (min-width: 768px) {
   .navbar,
   .toggle-button {
     display: none;
   }
 }
 
-@media only screen and (min-width: 374px) {
+@media only screen and (min-width: 374px) and (max-width: 767px) {
   .links {
     font-size: 48px;
     font-weight: 700;
@@ -158,7 +158,7 @@
     letter-spacing: -2px;
   }
 }
-@media only screen and (max-height: 670px) {
+@media only screen and (max-height: 670px) and (max-width: 767px) {
   .links ul {
     gap: 8px;
   }
@@ -169,53 +169,5 @@
     font-weight: 700;
     line-height: 40px;
     letter-spacing: -2px;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  .navbar {
-    width: 100%;
-    height: 100%;
-    font-size: 10vh;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #000000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    transition: left 1s ease;
-    opacity: 0.99;
-    padding-left: 180px;
-    overflow-y: scroll;
-  }
-  .toggle-button img {
-    transform: rotate(90deg);
-  }
-
-  .navbar.hidden {
-    left: -93%;
-    top: 0;
-    transition: 1s;
-  }
-  .toggle-button {
-    top: 50%;
-    left: 10px;
-  }
-
-  .contIcons {
-    display: flex;
-    flex-direction: column;
-    margin: 0.5%;
-    padding: 0.5%;
-    gap: 5px;
-    align-self: center;
-  }
-  .EnFlag,
-  .GeoFlag {
-    background-size: contain;
-  }
-  .links {
-    flex-direction: row;
-    gap: 100px;
   }
 }

@@ -1,0 +1,256 @@
+.contactPage {
+  background-color: antiquewhite;
+  position: relative;
+  overflow: hidden;
+}
+
+.contactPage::before {
+  content: "🏠";
+  font-size: 5rem;
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  opacity: 0.1;
+  z-index: 0;
+  transform: rotate(10deg);
+}
+
+.contactPage::after {
+  content: "✉️";
+  font-size: 5rem;
+  position: absolute;
+  bottom: 30%;
+  left: 8%;
+  opacity: 0.1;
+  z-index: 0;
+  transform: rotate(-5deg);
+}
+
+.contact-container {
+  padding: 15vh 10vw 5vh 10vw;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-title {
+  font-size: 56px;
+  font-weight: 700;
+  color: #d96caa;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.contact-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background-color: #169f49;
+  border-radius: 2px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.contact-details {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.contact-details:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(217, 108, 170, 0.2);
+}
+
+.contact-details h2 {
+  color: #d96caa;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.contact-details p {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.contact-details strong {
+  color: #169f49;
+}
+
+.contact-hours {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px dashed #d96caa;
+}
+
+.contact-hours h3 {
+  color: #d96caa;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.contact-form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h3 {
+  color: #d96caa;
+  margin-bottom: 25px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #d96caa;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(217, 108, 170, 0.2);
+}
+
+.submit-btn {
+  background-color: #d96caa;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.submit-btn:hover {
+  background-color: #169f49;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(22, 159, 73, 0.3);
+}
+
+@media screen and (min-width: 768px) {
+  .contact-info {
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  .contact-details,
+  .contact-form {
+    flex: 1;
+  }
+
+  .contact-title {
+    font-size: 64px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .contact-container {
+    padding: 12vh 6vw 5vh 6vw;
+  }
+
+  .contact-title {
+    font-size: 42px;
+  }
+}
+
+/* Map Section Styling */
+.map-section {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.map-section h2 {
+  font-size: 32px;
+  color: #d96caa;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.map-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #169f49;
+  border-radius: 2px;
+}
+
+.map-container {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  position: relative;
+  height: 450px;
+  z-index: 1;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Map container hover effect */
+.map-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 4px solid transparent;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.map-container:hover::before {
+  border-color: rgba(217, 108, 170, 0.3);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 767px) {
+  .map-section h2 {
+    font-size: 28px;
+  }
+
+  .map-container {
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .map-container {
+    height: 300px;
+  }
+}

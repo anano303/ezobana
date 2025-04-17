@@ -1,7 +1,35 @@
 .servicesPage {
   padding: 15vh 6vw 11.5vh 10vw;
-  background-color: black;
+  background-color: #f0e4d7; /* Changed from antiquewhite to a slightly darker shade */
+  position: relative;
+  overflow: hidden;
 }
+
+/* Playful background elements */
+.servicesPage::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: rgba(217, 108, 170, 0.1);
+  z-index: 0;
+}
+
+.servicesPage::after {
+  content: "";
+  position: absolute;
+  bottom: 20%;
+  left: 5%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: rgba(22, 159, 73, 0.1);
+  z-index: 0;
+}
+
 .servicesPage h1 {
   margin-bottom: 50px;
   font-size: 56px;
@@ -9,29 +37,26 @@
   line-height: 62px;
   letter-spacing: 0px;
   text-align: left;
-  color: transparent;
-  -webkit-text-stroke: 0.5px rgba(102, 102, 102, 1);
+  color: #d96caa;
+  position: relative;
+  z-index: 1;
 }
+
 .servicesPage span {
   font-size: 56px;
   font-weight: 700;
   line-height: 62px;
   letter-spacing: 0px;
-  color: rgba(229, 229, 72, 1);
+  color: #169f49;
   text-decoration: line-through 1px;
-  text-decoration-line: line-through;
-  text-decoration-color: currentcolor;
-  -webkit-text-stroke: 0;
-  text-decoration-line: line-through;
-  -webkit-text-decoration-line: line-through;
-  text-decoration-color: rgba(229, 229, 72, 1);
+  text-decoration-color: #169f49;
   padding-left: 95px;
+  position: relative;
 }
 
 .transparentText {
   font-size: 1.25rem;
-  color: transparent;
-  -webkit-text-stroke: 2px #1a1a1a;
+  color: #d96caa;
   margin-bottom: 2.5rem;
 }
 
@@ -51,29 +76,97 @@
   column-gap: 4vw;
   row-gap: 10vh;
   margin-right: 4vw;
-}
-
-.grid-item > .img {
-  height: 55%;
-  background-size: cover;
   position: relative;
-  transition-duration: 0.5s;
+  z-index: 1;
 }
 
-.img {
-  filter: grayscale(100%);
-  -webkit-filter: grayscale(100%);
+/* Update card styles to make image take full card */
+.grid-item {
+  height: 400px; /* Shorter height since we only have image and title now */
+  position: relative;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Make image container take full card height */
+.full-card-image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+/* Style the image to fill the container */
+.service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  filter: brightness(0.9);
+}
+
+/* Add gradient overlay for better title visibility */
+.title-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+/* Style the title in the overlay */
+.title-overlay .projectCapture {
+  color: white;
+  font-size: 1.3rem;
+  margin-bottom: 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Remove the after pseudo-element for titles */
+.projectCapture::after {
+  display: none;
+}
+
+/* Hover effects for cards */
+.grid-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(217, 108, 170, 0.3);
+}
+
+.grid-item:hover .service-image {
+  transform: scale(1.05);
+  filter: brightness(1);
+}
+
+.grid-item:hover .title-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(217, 108, 170, 0.8) 0%,
+    rgba(217, 108, 170, 0) 100%
+  );
 }
 
 .img > .ForProject {
   position: absolute;
-  font-size: 10.625rem;
+  font-size: 8rem;
   width: 11.063rem;
   transform: rotate(270deg);
-  left: 0;
-  bottom: 0;
-  -webkit-text-stroke: 2px rgba(255, 255, 255, 1);
+  left: -30px;
+  bottom: 60px;
+  color: #d96caa;
+  opacity: 0.8;
 }
+
 .img > .projectOnHover {
   width: 100%;
   height: 0%;
@@ -81,52 +174,54 @@
   bottom: 0;
   display: flex;
   justify-content: flex-end;
-  transition-duration: 0.5s;
-  z-index: -1;
+  transition: all 0.5s ease;
+  z-index: 1;
 }
 
+/* Add playful hover effects */
 .grid-item:hover {
-  box-shadow: 3px 4px 4px rgb(250, 250, 108);
-  transform: translateY(-8px);
+  transform: translateY(-15px) rotate(1deg);
+  box-shadow: 0 15px 30px rgba(217, 108, 170, 0.3);
 }
+
 .grid-item:hover .img {
   filter: grayscale(0%);
   -webkit-filter: grayscale(0%);
 }
 
-/* .project01 {
-  background: url(../Assets/სასაჩუქრე.WebP) no-repeat;
-}
-
-.project02 {
-  background: url(../Assets/პროდაქშენი.WebP) no-repeat;
-}
-
-.project03 {
-  background: url(../Assets/სოციალური\ ქსელები.WebP) no-repeat;
-}
-
-.project04 {
-  background: url(../Assets/პოლიგრაფია.WebP) no-repeat;
-} */
 .aboutProject {
-  padding: 25px 0 0 2vw;
+  padding: 25px 25px 0 25px;
   width: 100%;
+  position: relative;
+}
+
+/* Add playful decoration to each card */
+.aboutProject::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: #169f49;
+  opacity: 0.2;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: all 0.5s ease;
+}
+
+.grid-item:hover .aboutProject::before {
+  transform: scale(1);
 }
 
 .projectCapture {
-  color: rgba(229, 229, 72, 1);
+  color: #d96caa;
   font-size: 1.5rem;
   letter-spacing: 0.25rem;
   display: inline-block;
-}
-
-.grid-item {
-  height: 670px;
+  margin-bottom: 15px;
+  font-weight: bold;
   position: relative;
-  transition-duration: 0.5s;
-  background-color: black;
-  cursor: pointer;
 }
 
 .cut_left_corner::before {
@@ -134,178 +229,226 @@
   position: absolute;
   top: 0;
   left: 0;
-  border-top: 6rem solid black;
-  border-right: 6rem solid transparent;
+  border-top: 4rem solid #f0e4d7; /* Match the new background color */
+  border-right: 4rem solid transparent;
   z-index: 1;
 }
 
 .fullYellow {
   flex: 1;
-  background-color: rgba(229, 229, 72, 1);
+  background-color: rgba(217, 108, 170, 0.7);
 }
 
 .projectOnHover > button {
   width: 15%;
-  background: rgba(229, 229, 72, 0.3);
+  background: rgba(22, 159, 73, 0.7);
   border: transparent;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.projectOnHover > button:hover {
+  background: rgba(22, 159, 73, 0.9);
 }
 
 #black_arrow {
   transform: rotate(-90deg);
   height: 50%;
+  filter: brightness(10);
 }
 
 .grid-item:hover .projectOnHover {
   height: 22%;
   width: 100%;
-}
-
-.img > .projectOnHover {
-  width: 100%;
-  height: 0%;
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  justify-content: flex-end;
-  transition-duration: 0.5s;
-  z-index: -1;
-}
-
-.grid-item:hover .projectOnHover {
   opacity: 1;
-}
-li {
-  text-transform: uppercase;
-}
-
-.grid-item:hover .img {
-  filter: grayscale(0%);
-  -webkit-filter: grayscale(0%);
-}
-
-.projectOnHover > button {
-  width: 15%;
-  background: rgba(229, 229, 72, 0.3);
-  border: transparent;
-  cursor: pointer;
-  /* margin-right: 10px; */
-}
-.projectOnHover img {
-  /* width: 30px; */
-  height: auto;
-  transform: rotate(180deg);
-}
-
-.aboutProject:hover {
-  transform: translateY(0);
-}
-
-.grid-item:hover {
-  transform: translateY(0);
-}
-
-.projectCapture {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: rgba(229, 229, 72, 1);
-  font-size: 1.5rem;
-  letter-spacing: 0.25rem;
-  display: inline-block;
 }
 
 .projectParagraph {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #333;
   margin-bottom: 1rem;
-  font-size: 1.32rem;
   padding: 16px 0;
-}
-
-.grayText {
-  color: #888;
-  font-size: 0.875rem;
-  margin-bottom: 0.5rem;
+  line-height: 1.6;
 }
 
 .projectDotText {
   list-style: none;
-  padding: 0;
+  padding: 8px 0 0 12px;
 }
 
 .projectDotText li {
   display: inline-block;
-  font-size: 0.75rem;
-  color: yellow;
+  font-size: 0.95rem;
+  color: #169f49;
   margin-right: 0.5rem;
-}
-
-.grid-item:hover {
-  transform: translateY(0);
-}
-
-.projectDotText {
-  padding: 8px 0 0 12px;
-  font-size: 1rem;
-}
-
-.projectDotText > li::marker {
-  color: rgba(229, 229, 72, 1);
-}
-
-.grid-item:hover {
-  box-shadow: 3px 4px 4px rgb(250, 250, 108);
-  transform: translateY(-8px);
-}
-
-.grid-item:hover .img {
-  filter: grayscale(0%);
-  -webkit-filter: grayscale(0%);
-}
-.grayText {
+  position: relative;
+  padding-left: 20px;
   text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
+
+/* Add cute bullet points */
+.projectDotText li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #d96caa;
+  font-size: 1.5rem;
+  top: -12px;
+}
+
+.projectDotText li:hover {
+  color: #d96caa;
+  transform: translateX(5px);
+}
+
+/* Add some decorative elements for child-friendly design */
+@media only screen and (min-width: 1024px) {
+  .servicesPage::after {
+    content: "✏️";
+    font-size: 5rem;
+    position: absolute;
+    bottom: 5%;
+    left: 2%;
+    opacity: 0.1;
+    z-index: 0;
+    transform: rotate(-15deg);
+  }
+
+  .servicesPage::before {
+    content: "🎨";
+    font-size: 5rem;
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    opacity: 0.1;
+    z-index: 0;
+  }
+}
+
+/* Responsive design adjustments */
 @media only screen and (max-width: 375px) {
   .servicesPage h1,
   .servicesPage span {
     font-size: 46px;
   }
 }
+
 @media only screen and (max-width: 700px) {
   html {
     font-size: clamp(7px, 3.757px + 1.0811vw, 8px);
     margin: 0;
     padding: 0;
   }
+
   .servicesPage span {
     padding-left: 35px;
   }
+
+  .gridItems {
+    grid-template-columns: 1fr;
+  }
+
   .aboutProject {
     padding-top: 10px;
   }
 
   .grid-item {
-    height: 40vh;
-    position: relative;
-    transition-duration: 0.5s;
-    background-color: black;
-    cursor: pointer;
+    height: 300px;
   }
-  .grid-item > .img {
-    height: 50%;
+
+  .title-overlay .projectCapture {
+    font-size: 1.1rem;
   }
+
   .projectParagraph {
     font-size: 1.32rem;
     padding: 0px;
   }
+
   .img > .ForProject {
     margin-bottom: 2.5rem;
-    -webkit-text-stroke: 0.5px rgba(255, 255, 255, 1);
+    font-size: 6rem;
+    left: -20px;
+    bottom: 40px;
   }
+
   .projectOnHover > button {
     width: 22%;
   }
+
   #black_arrow {
     height: 70%;
   }
+}
+
+/* Update fullscreen image modal styles */
+.fullscreen-image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fullscreen-image-container {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fullscreen-image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+  animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 36px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 1001;
+}
+
+.close-button:hover {
+  transform: scale(1.2);
+  color: #d96caa;
 }

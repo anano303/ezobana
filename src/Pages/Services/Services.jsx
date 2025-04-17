@@ -1,46 +1,74 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./Services.css";
 import { TEXTS } from "../../Languages.js";
 import { LanguageContext } from "../../LanguageContext.js";
-import blackArrowBUtton from "../Assets/black_arrow_button.png";
-import GiftImg from "../Assets/სასაჩუქრე.WebP";
-import ProductionImg from "../Assets/პროდაქშენი.WebP";
-import SocialNetImg from "../Assets/სოციალური.WebP";
-import PolygraphImg from "../Assets/პოლიგრაფია.WebP";
+
+// Import a single image to use for all services until we have specific ones
+import programImage from "../../assets/ეზობანა 2.png";
 
 const servicesData = [
   {
     id: "01",
-    titleKey: "gift",
-    description:
-      "Unleash creativity with our curated gift ideas collection. Unique and personalized gift recommendations.",
-    imageUrl: GiftImg,
+    titleKeyGe: 'პროგრამა „ეზოს თამაშები"',
+    titleKeyEn: 'Program "Yard Games"',
+    imageUrl: programImage,
   },
   {
     id: "02",
-    titleKey: "production",
-    description:
-      "Bringing visions to life through production expertise. Creative production solutions.",
-    imageUrl: ProductionImg,
+    titleKeyGe: 'პროგრამა „ფეხბურთელი" / „მორაგბე"',
+    titleKeyEn: 'Program "Football Player" / "Rugby Player"',
+    imageUrl: programImage,
   },
   {
     id: "03",
-    titleKey: "socNet",
-    description:
-      "Navigating the digital landscape with effective social media management. Social media strategy and management.",
-    imageUrl: SocialNetImg,
+    titleKeyGe: 'პროგრამა „დიდები"',
+    titleKeyEn: 'Program "Grown-ups"',
+    imageUrl: programImage,
   },
   {
     id: "04",
-    titleKey: "polygraph",
-    description:
-      "Crafting brand identities that speak volumes. Unique and impactful brand identity designs.",
-    imageUrl: PolygraphImg,
+    titleKeyGe: "შეთავაზება სკოლებს და ბაღებს",
+    titleKeyEn: "Offers for Schools and Kindergartens",
+    imageUrl: programImage,
   },
 ];
 
 const Services = () => {
   const { language } = useContext(LanguageContext);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  // Add escape key handler for the fullscreen image
+  useEffect(() => {
+    const handleEscKey = (e) => {
+      if (e.key === "Escape" && selectedImage) {
+        setSelectedImage(null);
+      }
+    };
+
+    document.addEventListener("keydown", handleEscKey);
+
+    // Prevent body scrolling when modal is open
+    if (selectedImage) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscKey);
+      document.body.style.overflow = "auto";
+    };
+  }, [selectedImage]);
+
+  const handleImageClick = (imageUrl) => {
+    setSelectedImage(imageUrl);
+  };
+
+  const closeFullscreenImage = (e) => {
+    // Prevent the click from propagating to parent elements
+    e.stopPropagation();
+    setSelectedImage(null);
+  };
 
   return (
     <div className="servicesPage" id="services">
@@ -52,31 +80,40 @@ const Services = () => {
         {servicesData.map((service) => (
           <div className="grid-item" key={service.id}>
             <div
-              className={`cut_left_corner img  project${service.id}`}
-              style={{ backgroundImage: `url(${service.imageUrl})` }}
+              className="full-card-image"
+              onClick={() => handleImageClick(service.imageUrl)}
             >
-              <h1 className="transparentText ForProject">{service.id}</h1>
-              <div className="projectOnHover">
-                <div className="fullYellow"></div>
-                <button type="button">
-                  <img id="black_arrow" src={blackArrowBUtton} alt="arrow" />
-                </button>
-              </div>{" "}
-            </div>
-            <div className="aboutProject">
-              <h3 className="projectCapture">
-                {TEXTS[language][service.titleKey]}
-              </h3>
-              <p className="projectParagraph">{service.description}</p>
-              <ul className="projectDotText">
-                <a href="mailto:Hello@blueprintstudio.ge">
-                  <li>{TEXTS[language].order}</li>
-                </a>
-              </ul>
+              <img
+                src={service.imageUrl}
+                alt={
+                  language === "ge" ? service.titleKeyGe : service.titleKeyEn
+                }
+                className="service-image"
+              />
+              <div className="title-overlay">
+                <h3 className="projectCapture">
+                  {language === "ge" ? service.titleKeyGe : service.titleKeyEn}
+                </h3>
+              </div>
             </div>
           </div>
         ))}
       </div>
+
+      {/* Fullscreen Image Modal */}
+      {selectedImage && (
+        <div className="fullscreen-image-modal" onClick={closeFullscreenImage}>
+          <div
+            className="fullscreen-image-container"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img src={selectedImage} alt="Program" />
+            <button className="close-button" onClick={closeFullscreenImage}>
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

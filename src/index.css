@@ -11,11 +11,11 @@ code {
 body.en {
   font-family: "supreme", sans-serif !important;
 
-  background-color: black;
+  background-color: antiquewhite;
 }
 body.ge {
   font-family: "BPGNinoMtavruliNormal", sans-serif;
-  background-color: rgb(30, 31, 32);
+  background-color: antiquewhite;
 }
 @font-face {
   font-family: "BPGNinoMtavruliNormal";

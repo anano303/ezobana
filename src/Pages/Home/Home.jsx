@@ -1,43 +1,56 @@
 import "./Home.css";
 import { useContext, useEffect } from "react";
 import { TEXTS } from "../../Languages.js";
-// import { ThemeContext } from "../../ThemeContext.js";
 import { LanguageContext } from "../../LanguageContext.js";
 import { Link } from "react-router-dom";
-// import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
-
+import homeBannerImage from "../../assets/playful-games-birthday-party-nature-background.png";
 const Home = () => {
   const { language } = useContext(LanguageContext);
-
-  // const themeContext = useContext(ThemeContext);
-  // const langContext = useContext(LanguageContext);
 
   useEffect(() => {
     document.body.className = language;
   }, [language]);
+
   return (
-    <div className="homePage" id="#home">
-      {/* <div className="overlay"></div>
-      <div className="homeText">
-        <div className="h1Desktop">
-          <h1> {TEXTS[language].whatIsYours}</h1>
-          <h1 className="textLife"> {TEXTS[language].life} </h1>
-        </div>{" "}
-        <h1 className="textMtavari">
-          {TEXTS[language].main}
-          <span>{TEXTS[language].blueprint} </span>
-        </h1>
-        <h1 className="onlyEnglish">{TEXTS[language].onlyEnglish}</h1>
+    <div className="homePage" id="home">
+      <div className="home-content">
+        <div className="home-text-container">
+          <h1 className="home-title">
+            {language === "ge" ? "ეზობანა" : "Ezobana"}
+          </h1>
+          <h2 className="home-subtitle">
+            {language === "ge"
+              ? "თქვენი პატარას ჯადოსნური სამყარო"
+              : "A magical world for your little ones"}
+          </h2>
+          <p className="home-description">
+            {language === "ge"
+              ? "სივრცე, სადაც ყველა ბავშვი ლაღია, შემოქმედია, უპირობოდ მიღებულია"
+              : "A space where every child is free, creative, and unconditionally accepted"}
+          </p>
+          <div className="home-buttons">
+            <Link to="/services">
+              <button className="home-button primary-button">
+                {language === "ge" ? "პროგრამები" : "Programs"}
+              </button>
+            </Link>
+            <Link to="/portfolio">
+              <button className="home-button secondary-button">
+                {language === "ge" ? "ვორქშოფები" : "Workshops"}
+              </button>
+            </Link>
+          </div>
+        </div>
+        <div className="home-image-container">
+          <img src={homeBannerImage} alt="Ezobana" className="home-image" />
+        </div>
       </div>
-      <div className="pAndBtn">
-        <p>
-          You plan your vision, you plan your purpose that's we call your life
-          blueprint
-        </p>
-        <Link to="/about">
-          <button className="homeButton"> {TEXTS[language].findOut} </button>
-        </Link>
-      </div> */}
+      <div className="home-decorations">
+        <div className="decoration-item decoration-1">🎈</div>
+        <div className="decoration-item decoration-2">🎪</div>
+        <div className="decoration-item decoration-3">🧸</div>
+        <div className="decoration-item decoration-4">🎨</div>
+      </div>
     </div>
   );
 };

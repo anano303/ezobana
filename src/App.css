@@ -8,10 +8,11 @@
   scrollbar-width: thin; /* "auto" or "thin" for Firefox */
   scrollbar-color: transparent transparent;
 }
+
 .homeArrow {
-  position: absolute;
+  position: fixed; /* Change from absolute to fixed */
   left: 50%;
-  bottom: 10%;
+  bottom: 30px; /* Fixed distance from bottom of viewport */
   transform: translateX(-50%);
   background: rgba(217, 108, 170, 0.2);
   border-radius: 50%;
@@ -24,6 +25,13 @@
   cursor: pointer;
   z-index: 90;
   transition: all 0.3s ease;
+  opacity: 0; /* Start with invisible arrow */
+  pointer-events: none; /* Initially not clickable */
+}
+
+.homeArrow.visible {
+  opacity: 1;
+  pointer-events: auto; /* Make clickable when visible */
 }
 
 .homeArrow:hover {

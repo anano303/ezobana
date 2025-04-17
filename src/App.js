@@ -8,7 +8,7 @@ import Services from "./Pages/Services/Services";
 import Portfolio from "./Pages/Portfolio/Portfolio";
 import { LanguageContext } from "./LanguageContext";
 import { ThemeContext } from "./ThemeContext";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import arrowHome from "./assets/icons8-down-arrow-50.png";
 import ScrollObserver from "./Utils/ScrollObserver";
 
@@ -17,6 +17,7 @@ function App() {
   const [theme, setTheme] = useState("light");
   const [showAllPages, setShowAllPages] = useState(false);
   const [activePage, setActivePage] = useState("home");
+  const arrowRef = useRef(null);
 
   useEffect(() => {
     document.body.className = language;
@@ -28,6 +29,29 @@ function App() {
     // When enabling all pages mode, scroll to top first
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  // Effect to handle arrow visibility based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!showAllPages && arrowRef.current) {
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.body.scrollHeight;
+
+        // Show arrow when scrolled near the bottom (within 150px of bottom)
+        if (scrollPosition + windowHeight >= documentHeight - 150) {
+          arrowRef.current.classList.add("visible");
+        } else {
+          arrowRef.current.classList.remove("visible");
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [showAllPages]);
 
   // Provides both the all pages state and navigation helper to child components
   const allPagesContext = {
@@ -81,6 +105,7 @@ function App() {
                     <Layout>
                       <Home />
                       <button
+                        ref={arrowRef}
                         className="homeArrow"
                         onClick={toggleShowAllPages}
                         aria-label="Show all pages"

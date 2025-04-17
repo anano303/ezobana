@@ -163,7 +163,6 @@
 /* Media queries for responsive design */
 @media screen and (min-width: 768px) {
   .home-content {
-    flex-direction: row;
     padding: 0;
     min-height: 100vh;
   }
@@ -172,6 +171,10 @@
     padding: 0 0 0 10vw;
     justify-content: center;
     flex: 1;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 100%;
   }
 
   .home-image-container {

@@ -1,0 +1,311 @@
+.servicesPage {
+  padding: 15vh 6vw 11.5vh 10vw;
+  background-color: black;
+}
+.servicesPage h1 {
+  margin-bottom: 50px;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 62px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: transparent;
+  -webkit-text-stroke: 0.5px rgba(102, 102, 102, 1);
+}
+.servicesPage span {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 62px;
+  letter-spacing: 0px;
+  color: rgba(229, 229, 72, 1);
+  text-decoration: line-through 1px;
+  text-decoration-line: line-through;
+  text-decoration-color: currentcolor;
+  -webkit-text-stroke: 0;
+  text-decoration-line: line-through;
+  -webkit-text-decoration-line: line-through;
+  text-decoration-color: rgba(229, 229, 72, 1);
+  padding-left: 95px;
+}
+
+.transparentText {
+  font-size: 1.25rem;
+  color: transparent;
+  -webkit-text-stroke: 2px #1a1a1a;
+  margin-bottom: 2.5rem;
+}
+
+.yellowText {
+  color: yellow;
+  font-size: 5rem;
+}
+
+.hidden {
+  color: transparent;
+  font-size: 0.1rem;
+}
+
+.gridItems {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 4vw;
+  row-gap: 10vh;
+  margin-right: 4vw;
+}
+
+.grid-item > .img {
+  height: 55%;
+  background-size: cover;
+  position: relative;
+  transition-duration: 0.5s;
+}
+
+.img {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+}
+
+.img > .ForProject {
+  position: absolute;
+  font-size: 10.625rem;
+  width: 11.063rem;
+  transform: rotate(270deg);
+  left: 0;
+  bottom: 0;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 1);
+}
+.img > .projectOnHover {
+  width: 100%;
+  height: 0%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  transition-duration: 0.5s;
+  z-index: -1;
+}
+
+.grid-item:hover {
+  box-shadow: 3px 4px 4px rgb(250, 250, 108);
+  transform: translateY(-8px);
+}
+.grid-item:hover .img {
+  filter: grayscale(0%);
+  -webkit-filter: grayscale(0%);
+}
+
+/* .project01 {
+  background: url(../Assets/სასაჩუქრე.WebP) no-repeat;
+}
+
+.project02 {
+  background: url(../Assets/პროდაქშენი.WebP) no-repeat;
+}
+
+.project03 {
+  background: url(../Assets/სოციალური\ ქსელები.WebP) no-repeat;
+}
+
+.project04 {
+  background: url(../Assets/პოლიგრაფია.WebP) no-repeat;
+} */
+.aboutProject {
+  padding: 25px 0 0 2vw;
+  width: 100%;
+}
+
+.projectCapture {
+  color: rgba(229, 229, 72, 1);
+  font-size: 1.5rem;
+  letter-spacing: 0.25rem;
+  display: inline-block;
+}
+
+.grid-item {
+  height: 670px;
+  position: relative;
+  transition-duration: 0.5s;
+  background-color: black;
+  cursor: pointer;
+}
+
+.cut_left_corner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top: 6rem solid black;
+  border-right: 6rem solid transparent;
+  z-index: 1;
+}
+
+.fullYellow {
+  flex: 1;
+  background-color: rgba(229, 229, 72, 1);
+}
+
+.projectOnHover > button {
+  width: 15%;
+  background: rgba(229, 229, 72, 0.3);
+  border: transparent;
+  cursor: pointer;
+}
+
+#black_arrow {
+  transform: rotate(-90deg);
+  height: 50%;
+}
+
+.grid-item:hover .projectOnHover {
+  height: 22%;
+  width: 100%;
+}
+
+.img > .projectOnHover {
+  width: 100%;
+  height: 0%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  transition-duration: 0.5s;
+  z-index: -1;
+}
+
+.grid-item:hover .projectOnHover {
+  opacity: 1;
+}
+li {
+  text-transform: uppercase;
+}
+
+.grid-item:hover .img {
+  filter: grayscale(0%);
+  -webkit-filter: grayscale(0%);
+}
+
+.projectOnHover > button {
+  width: 15%;
+  background: rgba(229, 229, 72, 0.3);
+  border: transparent;
+  cursor: pointer;
+  /* margin-right: 10px; */
+}
+.projectOnHover img {
+  /* width: 30px; */
+  height: auto;
+  transform: rotate(180deg);
+}
+
+.aboutProject:hover {
+  transform: translateY(0);
+}
+
+.grid-item:hover {
+  transform: translateY(0);
+}
+
+.projectCapture {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: rgba(229, 229, 72, 1);
+  font-size: 1.5rem;
+  letter-spacing: 0.25rem;
+  display: inline-block;
+}
+
+.projectParagraph {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.32rem;
+  padding: 16px 0;
+}
+
+.grayText {
+  color: #888;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.projectDotText {
+  list-style: none;
+  padding: 0;
+}
+
+.projectDotText li {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: yellow;
+  margin-right: 0.5rem;
+}
+
+.grid-item:hover {
+  transform: translateY(0);
+}
+
+.projectDotText {
+  padding: 8px 0 0 12px;
+  font-size: 1rem;
+}
+
+.projectDotText > li::marker {
+  color: rgba(229, 229, 72, 1);
+}
+
+.grid-item:hover {
+  box-shadow: 3px 4px 4px rgb(250, 250, 108);
+  transform: translateY(-8px);
+}
+
+.grid-item:hover .img {
+  filter: grayscale(0%);
+  -webkit-filter: grayscale(0%);
+}
+.grayText {
+  text-transform: uppercase;
+}
+@media only screen and (max-width: 375px) {
+  .servicesPage h1,
+  .servicesPage span {
+    font-size: 46px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  html {
+    font-size: clamp(7px, 3.757px + 1.0811vw, 8px);
+    margin: 0;
+    padding: 0;
+  }
+  .servicesPage span {
+    padding-left: 35px;
+  }
+  .aboutProject {
+    padding-top: 10px;
+  }
+
+  .grid-item {
+    height: 40vh;
+    position: relative;
+    transition-duration: 0.5s;
+    background-color: black;
+    cursor: pointer;
+  }
+  .grid-item > .img {
+    height: 50%;
+  }
+  .projectParagraph {
+    font-size: 1.32rem;
+    padding: 0px;
+  }
+  .img > .ForProject {
+    margin-bottom: 2.5rem;
+    -webkit-text-stroke: 0.5px rgba(255, 255, 255, 1);
+  }
+  .projectOnHover > button {
+    width: 22%;
+  }
+  #black_arrow {
+    height: 70%;
+  }
+}

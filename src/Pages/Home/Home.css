@@ -1,0 +1,191 @@
+.homePage {
+  position: relative;
+  background-image: url(../Assets/playful-games-birthday-party-nature-background.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 32px 24px 32px 24px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.homeText,
+.homeButton,
+.pAndBtn {
+  z-index: 2; /* Ensure text is above the overlay */
+  color: #fff; /* Set the text color to white or your desired color */
+}
+.pAndBtn {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.homeText {
+  margin-top: 80px;
+}
+.homePage h1 {
+  /* font-family: "BPGNinoMtavruliNormal", sans-serif; */
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: -2px;
+  text-align: left;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+/* .homePage [data-language="en"] {
+  font-family: "supreme", sans-serif !important;
+  background-color: #0000ff;
+  color: #fff;
+} */
+.homePage span {
+  /* font-family: "BPGNinoMtavruliNormal", sans-serif; */
+  color: #0000ff;
+  text-decoration: line-through 1px;
+  text-decoration-line: line-through;
+  text-decoration-color: #0000ff;
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: -2px;
+  text-align: left;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+.pAndBtn p {
+  margin-top: 10px;
+  font-family: Supreme;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 29px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.homeButton {
+  width: 108px;
+  height: 108px;
+  background-color: #0000ff;
+  border: none;
+  border-radius: 100%;
+  font-family: "BPGNinoMtavruliNormal", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000000;
+}
+.homeButton:hover {
+  background-color: #030e38;
+  cursor: pointer;
+  color: white;
+}
+
+@media screen and (min-width: 768px) {
+  .homePage h1,
+  .homePage span {
+    font-size: 56px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .homePage {
+    padding-top: 50px;
+  }
+  .homeText {
+    margin-left: 55px;
+  }
+
+  .textMtavari {
+    margin-left: 70px;
+  }
+  .homeText span {
+    margin-left: 0px;
+  }
+  .pAndBtn p {
+    margin-left: 130px;
+    width: 300px;
+  }
+
+  .pAndBtn {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding-bottom: 50px;
+  }
+  .h1Desktop {
+    display: flex;
+  }
+
+  .textLife {
+    margin-left: 12px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .homeText {
+    margin-left: 85px;
+  }
+
+  .pAndBtn {
+    margin-top: 30px;
+  }
+  .pAndBtn p {
+    margin-left: 160px;
+  }
+  .icons img {
+    margin-left: 10px;
+  }
+  .homePage h1,
+  .homePage span {
+    font-size: 96px;
+    font-weight: 700;
+    line-height: 96px;
+    letter-spacing: -2px;
+    text-align: left;
+  }
+  .homePage span.en {
+    margin-top: 5px;
+  }
+  .homePage p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 29px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+  .homeButton {
+    font-family: "BPGNinoMtavruliNormal", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 2px;
+    color: #000000;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .onlyEnglish {
+    margin-left: 75px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .homeText span {
+    padding-top: 20px;
+  }
+}

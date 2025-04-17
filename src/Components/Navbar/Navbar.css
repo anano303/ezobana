@@ -1,0 +1,221 @@
+.navbar {
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  min-height: 100%;
+  font-size: 10vh;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000000;
+  top: 0;
+  right: 0;
+  margin-right: calc(100% - 100%);
+  transition: top 1s ease, right 1s ease;
+  opacity: 0.99;
+  padding: 30px 20px 30px 20px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+.navbar::-webkit-scrollbar,
+.navbar::-moz-scrollbar {
+  width: 0.2px;
+}
+.navbar::-webkit-scrollbar-thumb,
+.navbar::-moz-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.navbar::-webkit-scrollbar-track,
+.navbar::-moz-scrollbar-track {
+  background-color: transparent;
+}
+
+.navbar.hidden {
+  top: -100%;
+  background-color: #000000;
+  opacity: 0.3;
+}
+
+.toggle-button {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 8;
+  cursor: pointer;
+}
+
+.links {
+  margin-top: 40px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+  transition: max-height 3s ease;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: -2px;
+  text-align: left;
+}
+.links.en {
+  font-family: Supreme;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: -2px;
+  text-align: left;
+}
+.links li a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s ease;
+  font-weight: 700;
+  letter-spacing: 0px;
+  text-align: left;
+  color: white;
+}
+
+.links li a:hover,
+.links li a.active {
+  color: #0000ff;
+  text-decoration: line-through 1px;
+  text-decoration-line: line-through;
+  text-decoration-color: #0000ff;
+}
+
+.lightMode:hover,
+.darkMode:hover,
+.home:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+.GeoFlag {
+  background: url(../Icons/geFlag.png) no-repeat;
+  background-size: cover;
+}
+
+.EnFlag {
+  background: url(../Icons/enFlag.png) no-repeat;
+  background-size: cover;
+}
+
+.GeoFlag:hover,
+.EnFlag:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+.contIcons {
+  display: flex;
+  opacity: 90%;
+  margin-top: 20px;
+}
+
+.darkLightStyles {
+  width: 30px;
+  height: 29px;
+  position: relative;
+}
+.darkLightStyles p {
+  position: absolute;
+  color: #fff;
+  font-size: 18px;
+  top: -14px;
+  left: 60px;
+  letter-spacing: 1px;
+}
+.darkLightStyles p:hover {
+  color: #0000ff;
+  font-weight: bold;
+}
+.links ul {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hide desktop menu on small screens */
+@media screen and (min-width: 1024px) {
+  .navbar,
+  .toggle-button {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 374px) {
+  .links {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    margin-top: 115px;
+    letter-spacing: -2px;
+  }
+}
+@media only screen and (max-height: 670px) {
+  .links ul {
+    gap: 8px;
+  }
+  .links {
+    gap: 0px;
+    margin-top: 60px;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: -2px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .navbar {
+    width: 100%;
+    height: 100%;
+    font-size: 10vh;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: left 1s ease;
+    opacity: 0.99;
+    padding-left: 180px;
+    overflow-y: scroll;
+  }
+  .toggle-button img {
+    transform: rotate(90deg);
+  }
+
+  .navbar.hidden {
+    left: -93%;
+    top: 0;
+    transition: 1s;
+  }
+  .toggle-button {
+    top: 50%;
+    left: 10px;
+  }
+
+  .contIcons {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5%;
+    padding: 0.5%;
+    gap: 5px;
+    align-self: center;
+  }
+  .EnFlag,
+  .GeoFlag {
+    background-size: contain;
+  }
+  .links {
+    flex-direction: row;
+    gap: 100px;
+  }
+}

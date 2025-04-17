@@ -1,0 +1,180 @@
+.headerPage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: antiquewhite;
+  padding: 30px 24px 30px 24px;
+  width: 100%;
+  z-index: 6;
+}
+
+.headerOverlay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.headerIcons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  cursor: pointer;
+  position: absolute;
+  top: -15px;
+  z-index: 6;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+}
+
+.icons img {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  height: 90px;
+  font-size: 30px;
+  background-color: inherit;
+  align-items: center;
+}
+
+.Header div {
+  padding: 3px;
+  background-color: inherit;
+}
+
+.no-decoration {
+  text-decoration: none;
+}
+
+.invisible {
+  display: none;
+}
+.lightMode:hover,
+.darkMode:hover,
+.home:hover,
+.logo:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+/* Desktop Menu Styles */
+.desktop-menu {
+  display: none;
+}
+
+.desktop-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.desktop-links li a {
+  color: #d96caa;
+  text-decoration: none;
+  font-size: 1.8vw;
+  font-weight: 800;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.desktop-links li a:hover,
+.desktop-links li a.active {
+  color: #169f49;
+  text-decoration: line-through 1px;
+  text-decoration-color: #169f49;
+}
+
+.desktop-lang-switcher {
+  /* position: absolute;
+  right: -70px;
+  top: 0; */
+  display: flex;
+  gap: 15px;
+  margin-left: 30px;
+}
+
+.desktop-lang-switcher div {
+  cursor: pointer;
+}
+
+.desktop-lang-switcher p {
+  color: #d96caa;
+  font-size: 1.8vw;
+  font-weight: 800;
+}
+
+.desktop-lang-switcher div:hover p {
+  color: #169f49;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: block;
+}
+
+/* Responsive Layout */
+@media screen and (min-width: 375px) {
+  .logo {
+    width: 160px;
+    top: -25px;
+  }
+}
+
+@media screen and (max-height: 500px) {
+  .logo {
+    width: 120px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .logo {
+    left: 40px;
+    top: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .mobile-menu {
+    display: none;
+  }
+
+  .desktop-menu {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    position: relative;
+    left: 0;
+  }
+
+  .headerPage {
+    padding: 30px 50px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .desktop-links {
+    gap: 40px;
+  }
+
+  /* .desktop-links li a {
+    font-size: 18px;
+  } */
+}

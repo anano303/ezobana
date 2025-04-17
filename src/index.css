@@ -1,0 +1,25 @@
+@import url("https://api.fontshare.com/v2/css?f[]=supreme@800,400,300,500,700&display=swap");
+
+body {
+  margin: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+body.en {
+  font-family: "supreme", sans-serif !important;
+
+  background-color: black;
+}
+body.ge {
+  font-family: "BPGNinoMtavruliNormal", sans-serif;
+  background-color: rgb(30, 31, 32);
+}
+@font-face {
+  font-family: "BPGNinoMtavruliNormal";
+  src: url("./bpg_nino_mtavruli_normal.ttf");
+  font-weight: normal;
+  font-style: normal;
+}

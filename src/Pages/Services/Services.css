@@ -383,6 +383,49 @@
   }
 }
 
+/* Improve title responsiveness for small screens */
+@media only screen and (max-width: 400px) {
+  .servicesPage h1 {
+    font-size: 38px;
+    line-height: 44px;
+    margin-bottom: 30px;
+  }
+
+  .servicesPage span {
+    font-size: 38px;
+    line-height: 44px;
+    padding-left: 25px; /* Reduced padding */
+  }
+
+  .servicesPage {
+    padding: 12vh 4vw 8vh 5vw; /* Adjusted padding for small screens */
+  }
+
+  /* Adjust grid items for very small screens */
+  .gridItems {
+    grid-template-columns: 1fr;
+    row-gap: 6vh;
+  }
+
+  /* Make services cards title more compact */
+  .title-overlay .projectCapture {
+    font-size: 1rem;
+  }
+
+  /* Adjust additional services titles */
+  .additional-services-title {
+    font-size: 28px;
+  }
+
+  .additional-service-card {
+    width: 100%;
+  }
+
+  .card-content h3 {
+    font-size: 20px;
+  }
+}
+
 /* Update fullscreen image modal styles */
 .fullscreen-image-modal {
   position: fixed;

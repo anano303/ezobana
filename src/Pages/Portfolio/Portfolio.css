@@ -247,27 +247,94 @@
   }
 
   .workshop-item {
-    flex-direction: column;
-    text-align: center;
-    padding: 30px 20px;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    gap: 15px;
   }
 
   .workshop-emoji {
-    margin-bottom: 20px;
+    font-size: 2.8rem;
+    min-width: 60px;
+    height: 60px;
+  }
+
+  .workshop-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 
   .workshop-content h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    margin-bottom: 0;
   }
 
-  .workshop-content h3::after {
-    left: 50%;
-    transform: translateX(-50%);
+  .workshop-button {
+    align-self: flex-start;
+    padding: 8px 15px;
+    font-size: 14px;
   }
 
   .portfolio::before,
   .portfolio::after {
     font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .portfolio {
+    padding: 10vh 4vw 6vh 4vw;
+  }
+
+  .portfolio-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+
+  .workshop-item {
+    padding: 15px;
+    margin-bottom: 12px;
+    gap: 12px;
+  }
+
+  .workshop-emoji {
+    font-size: 2.4rem;
+    min-width: 50px;
+    height: 50px;
+  }
+
+  .workshop-content h3 {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+
+  .workshop-button {
+    padding: 7px 14px;
+    font-size: 13px;
+    margin-top: 5px;
+  }
+
+  .workshop-item:hover .workshop-emoji {
+    transform: scale(1.2);
+  }
+}
+
+@media screen and (max-height: 500px) and (max-width: 900px) {
+  .portfolio {
+    padding: 8vh 5vw 5vh 5vw;
+  }
+
+  .workshops-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .workshop-item {
+    height: auto;
   }
 }
 

@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   background: antiquewhite;
-  padding: 30px 24px 30px 24px;
+  padding: 50px 24px 50px 24px;
   width: 100%;
   z-index: 6;
 }
@@ -132,7 +132,7 @@
 @media screen and (min-width: 375px) {
   .logo {
     width: 160px;
-    top: -25px;
+    top: 10px;
   }
 }
 

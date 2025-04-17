@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
-import closeImage from "../Icons/X.png";
-import toggleImage from "../Icons/Menu.png";
+import closeImage from "../../assets/icons8-x-50.png";
+import toggleImage from "../../assets/icons8-menu-48.png";
 import { TEXTS } from "../../Languages.js";
 import { LanguageContext } from "../../LanguageContext.js";
 

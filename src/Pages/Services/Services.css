@@ -452,3 +452,169 @@
   transform: scale(1.2);
   color: #d96caa;
 }
+
+/* Additional Services Section Styles */
+.additional-services-section {
+  margin-top: 100px;
+  position: relative;
+  z-index: 1;
+}
+
+.additional-services-title {
+  font-size: clamp(32px, 4vw, 48px);
+  color: #d96caa;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+.additional-services-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 70%;
+  height: 4px;
+  background: linear-gradient(90deg, #d96caa 0%, #169f49 100%);
+  border-radius: 10px;
+}
+
+.additional-services-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(20px, 3vw, 40px);
+  justify-content: center;
+}
+
+.additional-service-card {
+  width: clamp(280px, calc(33.333% - 27px), 400px);
+  height: 200px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.additional-service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.additional-service-card.active {
+  height: 400px;
+  transform: translateY(-15px);
+}
+
+.card-content {
+  padding: 25px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.card-content h3 {
+  font-size: clamp(22px, 2.5vw, 28px);
+  color: white;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.card-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+  transition: all 0.5s ease;
+  animation: bounce 2s infinite alternate;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+.card-instruction {
+  color: white;
+  font-size: 14px;
+  opacity: 0.8;
+  margin-top: 20px;
+}
+
+.card-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.additional-service-card.active .card-image-container {
+  opacity: 1;
+}
+
+.additional-service-card.active .card-content {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
+  height: auto;
+  padding-bottom: 50px;
+}
+
+.additional-service-card.active .card-icon {
+  transform: scale(1.5);
+}
+
+.card-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 900px) {
+  .additional-service-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .additional-service-card {
+    width: 100%;
+  }
+
+  .additional-services-section {
+    margin-top: 60px;
+  }
+}
+
+/* Add a cute decorative element */
+.additional-services-section::before {
+  content: "🎡";
+  font-size: 5rem;
+  position: absolute;
+  top: -30px;
+  right: 5%;
+  opacity: 0.1;
+  z-index: 0;
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

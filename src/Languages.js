@@ -35,6 +35,7 @@ export const TEXTS = {
     name: "სახელი",
     message: "შეტყობინება",
     send: "გაგზავნა",
+    madeBy: "© 2025 დამზადებულია Bestsoft-ის მიერ",
   },
 
   en: {
@@ -73,5 +74,6 @@ export const TEXTS = {
     name: "Name",
     message: "Message",
     send: "Send",
+    madeBy: "© 2025 Made by Bestsoft",
   },
 };

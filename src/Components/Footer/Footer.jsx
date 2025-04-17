@@ -78,6 +78,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <div className="bestsoft-footer">
+        <a href="https://bestsoft.ge" target="_blank" rel="noopener noreferrer">
+          {TEXTS[language].madeBy}
+        </a>
+      </div>
     </div>
   );
 };

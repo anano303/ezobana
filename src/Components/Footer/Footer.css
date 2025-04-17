@@ -313,3 +313,24 @@
     text-align: left;
   }
 }
+
+/* Add styles for the Bestsoft footer */
+.bestsoft-footer {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(51, 51, 51, 0.2);
+  font-family: Supreme;
+  font-size: 14px;
+}
+
+.bestsoft-footer a {
+  color: #d96caa;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.bestsoft-footer a:hover {
+  color: #169f49;
+  text-decoration: underline;
+}

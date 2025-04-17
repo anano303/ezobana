@@ -1,16 +1,17 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import closeImage from "../../assets/icons8-x-50.png";
 import toggleImage from "../../assets/icons8-menu-48.png";
 import { TEXTS } from "../../Languages.js";
 import { LanguageContext } from "../../LanguageContext.js";
 
-const Navbar = ({ setShowAllPages }) => {
+const Navbar = ({ allPagesContext }) => {
   const [showLinks, setShowLinks] = useState(false);
   const [clickedLink, setClickedLink] = useState(null);
   const { language } = useContext(LanguageContext);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const langContext = useContext(LanguageContext);
 
@@ -37,6 +38,19 @@ const Navbar = ({ setShowAllPages }) => {
     setShowLinks(false);
   };
 
+  // Handle navigation differently based on if we're in all-pages mode
+  const handleNavigation = (sectionId) => {
+    closeNavbar();
+
+    if (allPagesContext && allPagesContext.showAllPages) {
+      allPagesContext.scrollToSection(sectionId);
+    } else {
+      // Normal navigation
+      const path = sectionId === "home" ? "/" : `/${sectionId}`;
+      navigate(path);
+    }
+  };
+
   return (
     <div>
       <div className={`navbar ${showLinks ? "" : "hidden"}`}>
@@ -44,50 +58,105 @@ const Navbar = ({ setShowAllPages }) => {
           <ul className="links">
             <ul>
               <li>
-                <Link
-                  to="/"
-                  onClick={closeNavbar}
-                  className={clickedLink === "/" ? "active" : ""}
-                >
-                  {TEXTS[language].home}
-                </Link>
+                {allPagesContext && allPagesContext.showAllPages ? (
+                  <a
+                    onClick={() => handleNavigation("home")}
+                    className={
+                      allPagesContext.activePage === "home" ? "active" : ""
+                    }
+                  >
+                    {TEXTS[language].home}
+                  </a>
+                ) : (
+                  <Link
+                    to="/"
+                    onClick={closeNavbar}
+                    className={clickedLink === "/" ? "active" : ""}
+                  >
+                    {TEXTS[language].home}
+                  </Link>
+                )}
               </li>
 
               <li>
-                <Link
-                  to="/about"
-                  onClick={closeNavbar}
-                  className={clickedLink === "/about" ? "active" : ""}
-                >
-                  {TEXTS[language].about}
-                </Link>
+                {allPagesContext && allPagesContext.showAllPages ? (
+                  <a
+                    onClick={() => handleNavigation("about")}
+                    className={
+                      allPagesContext.activePage === "about" ? "active" : ""
+                    }
+                  >
+                    {TEXTS[language].about}
+                  </a>
+                ) : (
+                  <Link
+                    to="/about"
+                    onClick={closeNavbar}
+                    className={clickedLink === "/about" ? "active" : ""}
+                  >
+                    {TEXTS[language].about}
+                  </Link>
+                )}
               </li>
               <li>
-                <Link
-                  to="/services"
-                  onClick={closeNavbar}
-                  className={clickedLink === "/services" ? "active" : ""}
-                >
-                  {TEXTS[language].services}
-                </Link>
+                {allPagesContext && allPagesContext.showAllPages ? (
+                  <a
+                    onClick={() => handleNavigation("services")}
+                    className={
+                      allPagesContext.activePage === "services" ? "active" : ""
+                    }
+                  >
+                    {TEXTS[language].services}
+                  </a>
+                ) : (
+                  <Link
+                    to="/services"
+                    onClick={closeNavbar}
+                    className={clickedLink === "/services" ? "active" : ""}
+                  >
+                    {TEXTS[language].services}
+                  </Link>
+                )}
               </li>
               <li>
-                <Link
-                  to="/portfolio"
-                  onClick={closeNavbar}
-                  className={clickedLink === "/portfolio" ? "active" : ""}
-                >
-                  {TEXTS[language].portfolio}
-                </Link>
+                {allPagesContext && allPagesContext.showAllPages ? (
+                  <a
+                    onClick={() => handleNavigation("portfolio")}
+                    className={
+                      allPagesContext.activePage === "portfolio" ? "active" : ""
+                    }
+                  >
+                    {TEXTS[language].portfolio}
+                  </a>
+                ) : (
+                  <Link
+                    to="/portfolio"
+                    onClick={closeNavbar}
+                    className={clickedLink === "/portfolio" ? "active" : ""}
+                  >
+                    {TEXTS[language].portfolio}
+                  </Link>
+                )}
               </li>
               <li>
-                <Link
-                  to="/contact"
-                  onClick={closeNavbar}
-                  className={clickedLink === "/contact" ? "active" : ""}
-                >
-                  {TEXTS[language].contact}
-                </Link>
+                {allPagesContext && allPagesContext.showAllPages ? (
+                  <a
+                    onClick={() => handleNavigation("contact")}
+                    className={
+                      allPagesContext.activePage === "contact" ? "active" : ""
+                    }
+                  >
+                    {TEXTS[language].contact}
+                  </a>
+                ) : (
+                  <Link
+                    to="/contact"
+                    onClick={closeNavbar}
+                    className={clickedLink === "/contact" ? "active" : ""}
+                  >
+                    {TEXTS[language].contact}
+                  </Link>
+                )}
               </li>
             </ul>
             <div className="contIcons">

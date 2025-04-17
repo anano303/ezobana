@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Layout from "./Layouts/Layout";
 import Home from "./Pages/Home/Home";
 import Contact from "./Pages/Contact/Contact";
-// import Header from "./Components/Header";
 import About from "./Pages/About/About";
 import Services from "./Pages/Services/Services";
 import Portfolio from "./Pages/Portfolio/Portfolio";
@@ -11,11 +10,13 @@ import { LanguageContext } from "./LanguageContext";
 import { ThemeContext } from "./ThemeContext";
 import React, { useState, useEffect } from "react";
 import arrowHome from "./assets/icons8-down-arrow-50.png";
+import ScrollObserver from "./Utils/ScrollObserver";
 
 function App() {
   const [language, setLanguage] = useState("ge");
   const [theme, setTheme] = useState("light");
   const [showAllPages, setShowAllPages] = useState(false);
+  const [activePage, setActivePage] = useState("home");
 
   useEffect(() => {
     document.body.className = language;
@@ -23,6 +24,23 @@ function App() {
 
   const toggleShowAllPages = () => {
     setShowAllPages((prev) => !prev);
+    setActivePage("home");
+    // When enabling all pages mode, scroll to top first
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // Provides both the all pages state and navigation helper to child components
+  const allPagesContext = {
+    showAllPages,
+    activePage,
+    setActivePage,
+    scrollToSection: (sectionId) => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+        setActivePage(sectionId);
+      }
+    },
   };
 
   return (
@@ -31,12 +49,29 @@ function App() {
         <ThemeContext.Provider value={{ theme, setTheme }}>
           <Router>
             {showAllPages ? (
-              <Layout>
-                <Home />
-                <About />
-                <Services />
-                <Portfolio />
-                <Contact />
+              <Layout allPagesContext={allPagesContext}>
+                <div className="all-pages-container">
+                  <section className="page-section" id="home">
+                    <Home />
+                  </section>
+                  <section className="page-section" id="about">
+                    <About />
+                  </section>
+                  <section className="page-section" id="services">
+                    <Services />
+                  </section>
+                  <section className="page-section" id="portfolio">
+                    <Portfolio />
+                  </section>
+                  <section className="page-section" id="contact">
+                    <Contact />
+                  </section>
+
+                  {/* Add the ScrollObserver to track current section */}
+                  <ScrollObserver
+                    onSectionChange={(sectionId) => setActivePage(sectionId)}
+                  />
+                </div>
               </Layout>
             ) : (
               <Routes>
@@ -48,6 +83,7 @@ function App() {
                       <button
                         className="homeArrow"
                         onClick={toggleShowAllPages}
+                        aria-label="Show all pages"
                       >
                         <img
                           className="homeArrowImg"

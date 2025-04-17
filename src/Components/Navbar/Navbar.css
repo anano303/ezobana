@@ -78,6 +78,7 @@
   letter-spacing: 0px;
   text-align: left;
   color: #d96caa;
+  cursor: pointer; /* Add cursor pointer to indicate clickability */
 }
 
 .links li a:hover,

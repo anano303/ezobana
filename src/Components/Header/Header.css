@@ -101,6 +101,7 @@
   transition: all 0.3s ease;
   text-transform: uppercase;
   white-space: nowrap;
+  cursor: pointer; /* Add cursor pointer to indicate clickability */
 }
 
 .desktop-links li a:hover,

@@ -66,7 +66,6 @@ const additionalServicesData = [
 const Services = () => {
   const { language } = useContext(LanguageContext);
   const [selectedImage, setSelectedImage] = useState(null);
-  const [activeCard, setActiveCard] = useState(null);
 
   // Add escape key handler for the fullscreen image
   useEffect(() => {
@@ -101,17 +100,12 @@ const Services = () => {
     setSelectedImage(null);
   };
 
-  // Handle additional services card click
+  // Handle additional services card click - modified to open fullscreen directly
   const handleAdditionalServiceClick = (id) => {
-    if (activeCard === id) {
-      // If the same card is clicked again, show fullscreen image
-      const service = additionalServicesData.find((item) => item.id === id);
-      if (service) {
-        setSelectedImage(service.imageUrl);
-      }
-    } else {
-      // Otherwise, just expand the card
-      setActiveCard(id);
+    // Find the service and show its image in fullscreen immediately
+    const service = additionalServicesData.find((item) => item.id === id);
+    if (service) {
+      setSelectedImage(service.imageUrl);
     }
   };
 
@@ -154,9 +148,7 @@ const Services = () => {
           {additionalServicesData.map((item) => (
             <div
               key={item.id}
-              className={`additional-service-card ${
-                activeCard === item.id ? "active" : ""
-              }`}
+              className="additional-service-card"
               style={{ backgroundColor: item.bgColor }}
               onClick={() => handleAdditionalServiceClick(item.id)}
             >
@@ -172,12 +164,6 @@ const Services = () => {
                     ? "დააჭირეთ სურათის სანახავად"
                     : "Click to view image"}
                 </p>
-              </div>
-              <div className="card-image-container">
-                <img
-                  src={item.imageUrl}
-                  alt={language === "ge" ? item.titleKeyGe : item.titleKeyEn}
-                />
               </div>
             </div>
           ))}

@@ -39,7 +39,7 @@ const Contact = () => {
               {language === "ge" ? "თბილისი, საქართველო" : "Tbilisi, Georgia"}
             </p>
             <p>
-              <strong>{TEXTS[language].phone}:</strong> +995 577 406 409
+              <strong>{TEXTS[language].phone}:</strong> +995 558 248 414
             </p>
             <p>
               <strong>{TEXTS[language].email}:</strong> hello@ezobana.ge

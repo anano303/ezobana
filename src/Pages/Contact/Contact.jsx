@@ -47,11 +47,8 @@ const Contact = () => {
 
             <div className="contact-hours">
               <h3>{TEXTS[language].workingHours}:</h3>
-              <p>{TEXTS[language].monday}: 10:00 - 19:00</p>
-              <p>{TEXTS[language].saturday}: 11:00 - 17:00</p>
-              <p>
-                {TEXTS[language].sunday}: {TEXTS[language].restDay}
-              </p>
+              <p>{TEXTS[language].monday}: 10:00 - 22:00</p>
+             
             </div>
           </div>
 

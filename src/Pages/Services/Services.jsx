@@ -9,7 +9,7 @@ import programImage2 from "../../assets/ეზობანა 3.png";
 import programImage3 from "../../assets/ეზობანა 4.png";
 import programImage4 from "../../assets/ეზობანა 5.png";
 import additionalServiceImg from "../../assets/ეზობანა 6.png";
-import adultsProgram from "../../assets/პროგრამა დიდები.png";
+import adultsProgram from "../../assets/ეზობანა 5.png";
 import schoolsProgram from "../../assets/სკოლებს და ბაღს.png";
 
 const servicesData = [
@@ -21,21 +21,21 @@ const servicesData = [
   },
   {
     id: "02",
-    titleKeyGe: 'პროგრამა „ფეხბურთელი" / „მორაგბე"',
-    titleKeyEn: 'Program "Football Player" / "Rugby Player"',
+    titleKeyGe: 'პროგრამა „ფეხბურთელი"',
+    titleKeyEn: 'Program "Football Player" ',
     imageUrl: programImage2,
   },
   {
     id: "03",
-    titleKeyGe: 'პროგრამა „დიდები"',
-    titleKeyEn: 'Program "Grown-ups"',
+    titleKeyGe: 'პროგრამა "მორაგბე"',
+    titleKeyEn: '"Rugby Player"',
     imageUrl: programImage3,
   },
   {
     id: "04",
     titleKeyGe: "შეთავაზება სკოლებს და ბაღებს",
     titleKeyEn: "Offers for Schools and Kindergartens",
-    imageUrl: programImage4,
+    imageUrl: schoolsProgram,
   },
 ];
 
@@ -49,18 +49,18 @@ const additionalServicesData = [
   },
   {
     id: "add-02",
-    titleKeyGe: "პროგრამა დიდებისთვის",
-    titleKeyEn: "Program for Adults",
+    titleKeyGe: "ანიმაციური გმირები",
+    titleKeyEn: "Animated Characters",
     imageUrl: adultsProgram,
     bgColor: "#B5EAD7", // Soft mint green
   },
-  {
-    id: "add-03",
-    titleKeyGe: "შეთავაზება სკოლებსა და ბაღებს",
-    titleKeyEn: "Offers for Schools and Kindergartens",
-    imageUrl: schoolsProgram,
-    bgColor: "#C7CEEA", // Soft lavender
-  },
+  // {
+  //   id: "add-03",
+  //   titleKeyGe: "შეთავაზება სკოლებსა და ბაღებს",
+  //   titleKeyEn: "Offers for Schools and Kindergartens",
+  //   imageUrl: schoolsProgram,
+  //   bgColor: "#C7CEEA", // Soft lavender
+  // },
 ];
 
 const Services = () => {
@@ -154,14 +154,14 @@ const Services = () => {
             >
               <div className="card-content">
                 <h3>{language === "ge" ? item.titleKeyGe : item.titleKeyEn}</h3>
-                <div className="card-icon">
+                {/* <div className="card-icon">
                   {item.id === "add-01" && <span>🎮</span>}
                   {item.id === "add-02" && <span>👨‍👩‍👧‍👦</span>}
                   {item.id === "add-03" && <span>🏫</span>}
-                </div>
+                </div> */}
                 <p className="card-instruction">
                   {language === "ge"
-                    ? "დააჭირეთ სურათის სანახავად"
+                    ? "დააჭირეთ  სანახავად"
                     : "Click to view image"}
                 </p>
               </div>

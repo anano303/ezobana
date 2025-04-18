@@ -384,7 +384,7 @@
 }
 
 /* Improve title responsiveness for small screens */
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 430px) {
   .servicesPage h1 {
     font-size: 32px;
     line-height: 38px;

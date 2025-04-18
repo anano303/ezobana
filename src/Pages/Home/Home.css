@@ -24,9 +24,15 @@
   justify-content: center;
   align-items: flex-start;
   z-index: 2;
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 30px 0;
+  gap: 30px;
+}
+
+/* Text content styling */
+.text-content {
+  width: 100%;
 }
 
 .home-title {
@@ -35,6 +41,18 @@
   color: #d96caa;
   margin-bottom: 16px;
   line-height: 1.1;
+  position: relative;
+  display: inline-block;
+}
+
+.home-title::after {
+  content: "";
+  position: absolute;
+  width: 30%;
+  height: 4px;
+  background: #169f49;
+  bottom: -5px;
+  left: 0;
 }
 
 .home-subtitle {
@@ -165,16 +183,29 @@
   .home-content {
     padding: 0;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column-reverse;
   }
 
   .home-text-container {
-    padding: 0 0 0 10vw;
-    justify-content: center;
-    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3vw; /* Reduced side padding */
     margin: 0;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    max-width: 100%;
+    gap: 40px;
+    max-width: 95%; /* Increased from 90% to use more screen width */
+  }
+
+  .text-content {
+    width: 60%; /* Slightly wider than before */
+  }
+
+  .home-title,
+  .home-subtitle,
+  .home-description,
+  .home-buttons {
+    width: 100%; /* Take full width of their container */
   }
 
   .home-image-container {
@@ -189,11 +220,47 @@
     height: 100%;
     object-position: center;
   }
+
+  .video-wrapper-container {
+    width: 35%; /* Slightly narrower to give more space to text */
+    margin: 0;
+    box-shadow: 0 15px 40px rgba(217, 108, 170, 0.15);
+    border: 3px solid antiquewhite;
+    border-radius: 15px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
   .home-text-container {
-    padding-left: 10vw;
+    padding: 0 4vw; /* Reduced left padding from 8vw */
+    gap: 50px;
+  }
+
+  .text-content {
+    width: 65%; /* Even wider on larger screens */
+  }
+
+  .video-wrapper-container {
+    width: 30%;
+    position: relative;
+  }
+
+  .video-wrapper-container::before {
+    content: "✨";
+    position: absolute;
+    font-size: 2rem;
+    top: -15px;
+    left: -15px;
+    z-index: 3;
+  }
+
+  .video-wrapper-container::after {
+    content: "🎮";
+    position: absolute;
+    font-size: 2rem;
+    bottom: -15px;
+    right: -15px;
+    z-index: 3;
   }
 
   .home-title {
@@ -211,7 +278,16 @@
 
 @media screen and (min-width: 1440px) {
   .home-text-container {
-    max-width: 700px;
+    max-width: 1300px; /* Increased from 1200px */
+    padding: 0 2vw; /* Further reduced padding on very large screens */
+  }
+
+  .text-content {
+    width: 68%; /* Maximum width for text on very large screens */
+  }
+
+  .video-wrapper-container {
+    width: 28%; /* Smaller proportion for video on large screens */
   }
 }
 
@@ -220,4 +296,27 @@
   .home-content {
     min-height: -webkit-fill-available;
   }
+}
+
+/* Video section styling */
+.video-wrapper-container {
+  width: 100%;
+  margin: 20px 0;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.video-wrapper-container:hover {
+  transform: translateY(-5px);
+}
+
+/* Hide old video containers */
+.desktop-video-container,
+.mobile-video-container,
+.video-column,
+.home-video-section {
+  display: none;
 }

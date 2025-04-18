@@ -13,7 +13,7 @@ export const TEXTS = {
     whatIsYours: "რა არის შენი ",
     life: "ცხოვრების",
     main: "მთავარი",
-    blueprint: "ბლუპრინტი?",
+    blueprint: "ეზობანა?",
     onlyEnglish: "",
     findOut: "აღმოაჩინე ",
     more: "გაიგე მეტი",
@@ -50,7 +50,7 @@ export const TEXTS = {
       "Provide customers with news, creative, quality and emotion.",
     whatIsYours: "what is the",
     life: "main",
-    blueprint: "blueprint",
+    blueprint: "ezobana",
     onlyEnglish: "in your life",
     youPlanYourVision:
       "You plan your vision, you plan your purpose that's we call your life blueprint",

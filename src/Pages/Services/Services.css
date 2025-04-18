@@ -386,15 +386,19 @@
 /* Improve title responsiveness for small screens */
 @media only screen and (max-width: 400px) {
   .servicesPage h1 {
-    font-size: 38px;
-    line-height: 44px;
-    margin-bottom: 30px;
+    font-size: 32px;
+    line-height: 38px;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+    max-width: 100%;
   }
 
   .servicesPage span {
-    font-size: 38px;
-    line-height: 44px;
-    padding-left: 25px; /* Reduced padding */
+    font-size: 32px;
+    line-height: 38px;
+    padding-left: 5px; /* Significantly reduced padding */
+    display: block; /* Make span display as block to prevent overflow */
+    margin-top: 5px;
   }
 
   .servicesPage {
@@ -423,6 +427,20 @@
 
   .card-content h3 {
     font-size: 20px;
+  }
+}
+
+/* Add a specific breakpoint for very small devices */
+@media only screen and (max-width: 320px) {
+  .servicesPage h1 {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .servicesPage span {
+    font-size: 28px;
+    line-height: 32px;
+    padding-left: 0;
   }
 }
 

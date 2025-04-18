@@ -7,7 +7,7 @@ import { LanguageContext } from "../../LanguageContext.js";
 import programImage from "../../assets/ეზობანა 2.png";
 import programImage2 from "../../assets/ეზობანა 3.png";
 import programImage3 from "../../assets/ეზობანა 4.png";
-import programImage4 from "../../assets/ეზობანა 5.png";
+// import programImage4 from "../../assets/ეზობანა 5.png";
 import additionalServiceImg from "../../assets/ეზობანა 6.png";
 import adultsProgram from "../../assets/ეზობანა 5.png";
 import schoolsProgram from "../../assets/სკოლებს და ბაღს.png";

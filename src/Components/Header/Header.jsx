@@ -32,6 +32,16 @@ const Header = ({ allPagesContext }) => {
     }
   };
 
+  const handleAnchorClick = (e, sectionId) => {
+    if (allPagesContext && allPagesContext.showAllPages) {
+      e.preventDefault();
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <div className="headerPage">
       <div className="headerOverlay">
@@ -56,6 +66,7 @@ const Header = ({ allPagesContext }) => {
               {allPagesContext && allPagesContext.showAllPages ? (
                 <a
                   href="#home"
+                  onClick={(e) => handleAnchorClick(e, "home")}
                   className={
                     allPagesContext.activePage === "home" ? "active" : ""
                   }
@@ -72,6 +83,7 @@ const Header = ({ allPagesContext }) => {
               {allPagesContext && allPagesContext.showAllPages ? (
                 <a
                   href="#about"
+                  onClick={(e) => handleAnchorClick(e, "about")}
                   className={
                     allPagesContext.activePage === "about" ? "active" : ""
                   }
@@ -91,6 +103,7 @@ const Header = ({ allPagesContext }) => {
               {allPagesContext && allPagesContext.showAllPages ? (
                 <a
                   href="#services"
+                  onClick={(e) => handleAnchorClick(e, "services")}
                   className={
                     allPagesContext.activePage === "services" ? "active" : ""
                   }
@@ -110,6 +123,7 @@ const Header = ({ allPagesContext }) => {
               {allPagesContext && allPagesContext.showAllPages ? (
                 <a
                   href="#portfolio"
+                  onClick={(e) => handleAnchorClick(e, "portfolio")}
                   className={
                     allPagesContext.activePage === "portfolio" ? "active" : ""
                   }
@@ -129,6 +143,7 @@ const Header = ({ allPagesContext }) => {
               {allPagesContext && allPagesContext.showAllPages ? (
                 <a
                   href="#contact"
+                  onClick={(e) => handleAnchorClick(e, "contact")}
                   className={
                     allPagesContext.activePage === "contact" ? "active" : ""
                   }

@@ -38,16 +38,14 @@ const Navbar = ({ allPagesContext }) => {
     setShowLinks(false);
   };
 
-  // Handle navigation differently based on if we're in all-pages mode
-  const handleNavigation = (sectionId) => {
+  const handleNavigation = (e, sectionId) => {
+    e.preventDefault();
     closeNavbar();
-
     if (allPagesContext && allPagesContext.showAllPages) {
-      allPagesContext.scrollToSection(sectionId);
-    } else {
-      // Normal navigation
-      const path = sectionId === "home" ? "/" : `/${sectionId}`;
-      navigate(path);
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 
@@ -60,7 +58,8 @@ const Navbar = ({ allPagesContext }) => {
               <li>
                 {allPagesContext && allPagesContext.showAllPages ? (
                   <a
-                    onClick={() => handleNavigation("home")}
+                    href="#home"
+                    onClick={(e) => handleNavigation(e, "home")}
                     className={
                       allPagesContext.activePage === "home" ? "active" : ""
                     }
@@ -81,7 +80,8 @@ const Navbar = ({ allPagesContext }) => {
               <li>
                 {allPagesContext && allPagesContext.showAllPages ? (
                   <a
-                    onClick={() => handleNavigation("about")}
+                    href="#about"
+                    onClick={(e) => handleNavigation(e, "about")}
                     className={
                       allPagesContext.activePage === "about" ? "active" : ""
                     }
@@ -101,7 +101,8 @@ const Navbar = ({ allPagesContext }) => {
               <li>
                 {allPagesContext && allPagesContext.showAllPages ? (
                   <a
-                    onClick={() => handleNavigation("services")}
+                    href="#services"
+                    onClick={(e) => handleNavigation(e, "services")}
                     className={
                       allPagesContext.activePage === "services" ? "active" : ""
                     }
@@ -121,7 +122,8 @@ const Navbar = ({ allPagesContext }) => {
               <li>
                 {allPagesContext && allPagesContext.showAllPages ? (
                   <a
-                    onClick={() => handleNavigation("portfolio")}
+                    href="#portfolio"
+                    onClick={(e) => handleNavigation(e, "portfolio")}
                     className={
                       allPagesContext.activePage === "portfolio" ? "active" : ""
                     }
@@ -141,7 +143,8 @@ const Navbar = ({ allPagesContext }) => {
               <li>
                 {allPagesContext && allPagesContext.showAllPages ? (
                   <a
-                    onClick={() => handleNavigation("contact")}
+                    href="#contact"
+                    onClick={(e) => handleNavigation(e, "contact")}
                     className={
                       allPagesContext.activePage === "contact" ? "active" : ""
                     }

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import Navbar from "../Navbar/Navbar.jsx";
 import logo from "../../assets/ეზობანა (1).png";
 import "./Header.css";
@@ -11,13 +11,48 @@ const Header = ({ allPagesContext }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [clickedLink, setClickedLink] = useState(null);
+  const [isSticky, setIsSticky] = useState(false);
+  const [isScrollingUp, setIsScrollingUp] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const headerRef = useRef(null);
 
   useEffect(() => {
     setClickedLink(location.pathname);
   }, [location.pathname]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const headerHeight = headerRef.current?.offsetHeight || 0;
+
+      // Check if we should make header sticky
+      setIsSticky(currentScrollY > headerHeight);
+
+      // Check scroll direction
+      setIsScrollingUp(currentScrollY < lastScrollY);
+      setLastScrollY(currentScrollY);
+
+      // Add padding to body when header is sticky
+      document.body.style.setProperty("--header-height", `${headerHeight}px`);
+      document.body.classList.toggle(
+        "has-sticky-header",
+        currentScrollY > headerHeight
+      );
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   const handleLanguageChange = (lang) => {
     setLanguage(lang);
+  };
+
+  const handleAnchorClick = (e, sectionId) => {
+    if (allPagesContext && allPagesContext.showAllPages) {
+      e.preventDefault();
+      allPagesContext.scrollToSection(sectionId);
+    }
   };
 
   // Handle navigation differently based on if we're in all-pages mode
@@ -33,7 +68,12 @@ const Header = ({ allPagesContext }) => {
   };
 
   return (
-    <div className="headerPage">
+    <div
+      ref={headerRef}
+      className={`headerPage ${isSticky ? "sticky" : ""} ${
+        isSticky && isScrollingUp ? "visible" : ""
+      }`}
+    >
       <div className="headerOverlay">
         {/* Logo always navigates to home page */}
         {allPagesContext && allPagesContext.showAllPages ? (
@@ -54,14 +94,15 @@ const Header = ({ allPagesContext }) => {
           <ul className="desktop-links">
             <li>
               {allPagesContext && allPagesContext.showAllPages ? (
-                <button
-                  onClick={() => handleNavigation("home")}
+                <a
+                  href="#home"
+                  onClick={(e) => handleAnchorClick(e, "home")}
                   className={
                     allPagesContext.activePage === "home" ? "active" : ""
                   }
                 >
                   {TEXTS[language].home}
-                </button>
+                </a>
               ) : (
                 <Link to="/" className={clickedLink === "/" ? "active" : ""}>
                   {TEXTS[language].home}
@@ -70,14 +111,15 @@ const Header = ({ allPagesContext }) => {
             </li>
             <li>
               {allPagesContext && allPagesContext.showAllPages ? (
-                <button
-                  onClick={() => handleNavigation("about")}
+                <a
+                  href="#about"
+                  onClick={(e) => handleAnchorClick(e, "about")}
                   className={
                     allPagesContext.activePage === "about" ? "active" : ""
                   }
                 >
                   {TEXTS[language].about}
-                </button>
+                </a>
               ) : (
                 <Link
                   to="/about"
@@ -89,14 +131,15 @@ const Header = ({ allPagesContext }) => {
             </li>
             <li>
               {allPagesContext && allPagesContext.showAllPages ? (
-                <button
-                  onClick={() => handleNavigation("services")}
+                <a
+                  href="#services"
+                  onClick={(e) => handleAnchorClick(e, "services")}
                   className={
                     allPagesContext.activePage === "services" ? "active" : ""
                   }
                 >
                   {TEXTS[language].services}
-                </button>
+                </a>
               ) : (
                 <Link
                   to="/services"
@@ -108,14 +151,15 @@ const Header = ({ allPagesContext }) => {
             </li>
             <li>
               {allPagesContext && allPagesContext.showAllPages ? (
-                <button
-                  onClick={() => handleNavigation("portfolio")}
+                <a
+                  href="#portfolio"
+                  onClick={(e) => handleAnchorClick(e, "portfolio")}
                   className={
                     allPagesContext.activePage === "portfolio" ? "active" : ""
                   }
                 >
                   {TEXTS[language].portfolio}
-                </button>
+                </a>
               ) : (
                 <Link
                   to="/portfolio"
@@ -127,14 +171,15 @@ const Header = ({ allPagesContext }) => {
             </li>
             <li>
               {allPagesContext && allPagesContext.showAllPages ? (
-                <button
-                  onClick={() => handleNavigation("contact")}
+                <a
+                  href="#contact"
+                  onClick={(e) => handleAnchorClick(e, "contact")}
                   className={
                     allPagesContext.activePage === "contact" ? "active" : ""
                   }
                 >
                   {TEXTS[language].contact}
-                </button>
+                </a>
               ) : (
                 <Link
                   to="/contact"

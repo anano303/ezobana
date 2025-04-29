@@ -6,30 +6,6 @@
   padding: clamp(15px, 4vw, 50px) clamp(15px, 4vw, 50px);
   width: 100%;
   z-index: 6;
-  position: absolute;
-  transform: translateY(0);
-}
-
-.headerPage.sticky {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background: antiquewhite;
-  transform: translateY(-100%);
-}
-
-.headerPage.sticky.visible {
-  transform: translateY(0);
-  transition: transform 0.3s ease;
-}
-
-body.has-sticky-header {
-  padding-top: var(--header-height);
-}
-
-.headerPage:not(.sticky) {
   position: relative;
 }
 

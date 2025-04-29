@@ -2,13 +2,11 @@ import React, { useState, useContext, useEffect } from "react";
 import Navbar from "../Navbar/Navbar.jsx";
 import logo from "../../assets/ეზობანა (1).png";
 import "./Header.css";
-// import { ThemeContext } from "../../ThemeContext.js";
 import { LanguageContext } from "../../LanguageContext.js";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { TEXTS } from "../../Languages.js";
 
 const Header = ({ allPagesContext }) => {
-  // const themeContext = useContext(ThemeContext);
   const { language, setLanguage } = useContext(LanguageContext);
   const location = useLocation();
   const navigate = useNavigate();
@@ -18,12 +16,8 @@ const Header = ({ allPagesContext }) => {
     setClickedLink(location.pathname);
   }, [location.pathname]);
 
-  const geoOnClick = () => {
-    setLanguage("ge");
-  };
-
-  const enOnClick = () => {
-    setLanguage("en");
+  const handleLanguageChange = (lang) => {
+    setLanguage(lang);
   };
 
   // Handle navigation differently based on if we're in all-pages mode
@@ -153,17 +147,70 @@ const Header = ({ allPagesContext }) => {
           </ul>
 
           <div className="desktop-lang-switcher">
-            <div
-              className={language === "ge" ? "invisible" : ""}
-              onClick={geoOnClick}
-            >
-              <p>ქართული</p>
-            </div>
-            <div
-              className={language === "en" ? "invisible" : ""}
-              onClick={enOnClick}
-            >
-              <p>ENGLISH</p>
+            <div className="lang-selector">
+              <button
+                className={`lang-button ${language === "ge" ? "active" : ""}`}
+                onClick={() => handleLanguageChange("ge")}
+              >
+                <svg className="lang-icon" viewBox="0 0 300 200">
+                  <rect width="300" height="200" fill="#fff" />
+                  {/* Main center cross */}
+                  <path
+                    d="M125,0 h50 v75 h125 v50 h-125 v75 h-50 v-75 h-125 v-50 h125 z"
+                    fill="#ff0000"
+                  />
+                  {/* Four smaller crosses in corners */}
+                  <path
+                    d="M20,20 h25 v-20 h20 v20 h25 v20 h-25 v25 h-20 v-25 h-25 z"
+                    fill="#ff0000"
+                  />
+                  <path
+                    d="M210,20 h25 v-20 h20 v20 h25 v20 h-25 v25 h-20 v-25 h-25 z"
+                    fill="#ff0000"
+                  />
+                  <path
+                    d="M20,135 h25 v-20 h20 v20 h25 v20 h-25 v25 h-20 v-25 h-25 z"
+                    fill="#ff0000"
+                  />
+                  <path
+                    d="M210,135 h25 v-20 h20 v20 h25 v20 h-25 v25 h-20 v-25 h-25 z"
+                    fill="#ff0000"
+                  />
+                </svg>
+              </button>
+
+              <button
+                className={`lang-button ${language === "en" ? "active" : ""}`}
+                onClick={() => handleLanguageChange("en")}
+              >
+                <svg className="lang-icon" viewBox="0 0 60 30">
+                  <clipPath id="s">
+                    <path d="M0,0 v30 h60 v-30 z" />
+                  </clipPath>
+                  <rect width="60" height="30" fill="#012169" />
+                  <path
+                    d="M0,0 L60,30 M60,0 L0,30"
+                    stroke="#fff"
+                    strokeWidth="6"
+                  />
+                  <path
+                    d="M0,0 L60,30 M60,0 L0,30"
+                    clipPath="url(#s)"
+                    stroke="#C8102E"
+                    strokeWidth="4"
+                  />
+                  <path
+                    d="M30,0 v30 M0,15 h60"
+                    stroke="#fff"
+                    strokeWidth="10"
+                  />
+                  <path
+                    d="M30,0 v30 M0,15 h60"
+                    stroke="#C8102E"
+                    strokeWidth="6"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
         </div>

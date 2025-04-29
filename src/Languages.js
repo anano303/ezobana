@@ -1,7 +1,7 @@
 export const TEXTS = {
   ge: {
     home: "მთავარი",
-    about: "ვინ ვართ ჩვენ?",
+    about: "ვინ ვართ ჩვენ",
     services: "პროგრამები",
     portfolio: "ვორქშოფები",
     contact: "საკონტაქტო",
@@ -40,7 +40,7 @@ export const TEXTS = {
 
   en: {
     home: "HOME",
-    about: "WHO ARE WE? ",
+    about: "WHO ARE WE ",
     services: "PROGRAMS",
     portfolio: "WORKSHOPS",
     contact: "CONTACT",

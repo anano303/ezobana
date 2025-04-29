@@ -2,13 +2,13 @@ import React, { useState, useContext, useEffect } from "react";
 import Navbar from "../Navbar/Navbar.jsx";
 import logo from "../../assets/ეზობანა (1).png";
 import "./Header.css";
-import { ThemeContext } from "../../ThemeContext.js";
+// import { ThemeContext } from "../../ThemeContext.js";
 import { LanguageContext } from "../../LanguageContext.js";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { TEXTS } from "../../Languages.js";
 
 const Header = ({ allPagesContext }) => {
-  const themeContext = useContext(ThemeContext);
+  // const themeContext = useContext(ThemeContext);
   const { language, setLanguage } = useContext(LanguageContext);
   const location = useLocation();
   const navigate = useNavigate();
@@ -60,14 +60,14 @@ const Header = ({ allPagesContext }) => {
           <ul className="desktop-links">
             <li>
               {allPagesContext && allPagesContext.showAllPages ? (
-                <a
+                <button
                   onClick={() => handleNavigation("home")}
                   className={
                     allPagesContext.activePage === "home" ? "active" : ""
                   }
                 >
                   {TEXTS[language].home}
-                </a>
+                </button>
               ) : (
                 <Link to="/" className={clickedLink === "/" ? "active" : ""}>
                   {TEXTS[language].home}
@@ -76,14 +76,14 @@ const Header = ({ allPagesContext }) => {
             </li>
             <li>
               {allPagesContext && allPagesContext.showAllPages ? (
-                <a
+                <button
                   onClick={() => handleNavigation("about")}
                   className={
                     allPagesContext.activePage === "about" ? "active" : ""
                   }
                 >
                   {TEXTS[language].about}
-                </a>
+                </button>
               ) : (
                 <Link
                   to="/about"
@@ -95,14 +95,14 @@ const Header = ({ allPagesContext }) => {
             </li>
             <li>
               {allPagesContext && allPagesContext.showAllPages ? (
-                <a
+                <button
                   onClick={() => handleNavigation("services")}
                   className={
                     allPagesContext.activePage === "services" ? "active" : ""
                   }
                 >
                   {TEXTS[language].services}
-                </a>
+                </button>
               ) : (
                 <Link
                   to="/services"
@@ -114,14 +114,14 @@ const Header = ({ allPagesContext }) => {
             </li>
             <li>
               {allPagesContext && allPagesContext.showAllPages ? (
-                <a
+                <button
                   onClick={() => handleNavigation("portfolio")}
                   className={
                     allPagesContext.activePage === "portfolio" ? "active" : ""
                   }
                 >
                   {TEXTS[language].portfolio}
-                </a>
+                </button>
               ) : (
                 <Link
                   to="/portfolio"
@@ -133,14 +133,14 @@ const Header = ({ allPagesContext }) => {
             </li>
             <li>
               {allPagesContext && allPagesContext.showAllPages ? (
-                <a
+                <button
                   onClick={() => handleNavigation("contact")}
                   className={
                     allPagesContext.activePage === "contact" ? "active" : ""
                   }
                 >
                   {TEXTS[language].contact}
-                </a>
+                </button>
               ) : (
                 <Link
                   to="/contact"

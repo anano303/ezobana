@@ -31,36 +31,27 @@ const servicesData = [
     titleKeyEn: '"Rugby Player"',
     imageUrl: programImage3,
   },
+];
+
+const additionalServicesData = [
   {
     id: "04",
     titleKeyGe: "შეთავაზება სკოლებს და ბაღებს",
     titleKeyEn: "Offers for Schools and Kindergartens",
     imageUrl: schoolsProgram,
   },
-];
-
-const additionalServicesData = [
   {
     id: "add-01",
     titleKeyGe: "დამატებითი სერვისები",
     titleKeyEn: "Additional Services",
     imageUrl: additionalServiceImg,
-    bgColor: "#FF9AA2", // Soft pink
   },
   {
     id: "add-02",
     titleKeyGe: "ანიმაციური გმირები",
     titleKeyEn: "Animated Characters",
     imageUrl: adultsProgram,
-    bgColor: "#B5EAD7", // Soft mint green
   },
-  // {
-  //   id: "add-03",
-  //   titleKeyGe: "შეთავაზება სკოლებსა და ბაღებს",
-  //   titleKeyEn: "Offers for Schools and Kindergartens",
-  //   imageUrl: schoolsProgram,
-  //   bgColor: "#C7CEEA", // Soft lavender
-  // },
 ];
 
 const Services = () => {
@@ -144,26 +135,23 @@ const Services = () => {
         <h2 className="additional-services-title">
           {language === "ge" ? "გასართობი აქტივობები" : "Fun Activities"}
         </h2>
-        <div className="additional-services-container">
+        <div className="gridItems">
           {additionalServicesData.map((item) => (
-            <div
-              key={item.id}
-              className="additional-service-card"
-              style={{ backgroundColor: item.bgColor }}
-              onClick={() => handleAdditionalServiceClick(item.id)}
-            >
-              <div className="card-content">
-                <h3>{language === "ge" ? item.titleKeyGe : item.titleKeyEn}</h3>
-                {/* <div className="card-icon">
-                  {item.id === "add-01" && <span>🎮</span>}
-                  {item.id === "add-02" && <span>👨‍👩‍👧‍👦</span>}
-                  {item.id === "add-03" && <span>🏫</span>}
-                </div> */}
-                <p className="card-instruction">
-                  {language === "ge"
-                    ? "დააჭირეთ  სანახავად"
-                    : "Click to view image"}
-                </p>
+            <div className="grid-item" key={item.id}>
+              <div
+                className="full-card-image"
+                onClick={() => handleAdditionalServiceClick(item.id)}
+              >
+                <img
+                  src={item.imageUrl}
+                  alt={language === "ge" ? item.titleKeyGe : item.titleKeyEn}
+                  className="service-image"
+                />
+                <div className="title-overlay">
+                  <h3 className="projectCapture">
+                    {language === "ge" ? item.titleKeyGe : item.titleKeyEn}
+                  </h3>
+                </div>
               </div>
             </div>
           ))}

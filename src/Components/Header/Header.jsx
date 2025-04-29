@@ -54,14 +54,14 @@ const Header = ({ allPagesContext }) => {
           <ul className="desktop-links">
             <li>
               {allPagesContext && allPagesContext.showAllPages ? (
-                <button
-                  onClick={() => handleNavigation("home")}
+                <a
+                  href="#home"
                   className={
                     allPagesContext.activePage === "home" ? "active" : ""
                   }
                 >
                   {TEXTS[language].home}
-                </button>
+                </a>
               ) : (
                 <Link to="/" className={clickedLink === "/" ? "active" : ""}>
                   {TEXTS[language].home}
@@ -70,14 +70,14 @@ const Header = ({ allPagesContext }) => {
             </li>
             <li>
               {allPagesContext && allPagesContext.showAllPages ? (
-                <button
-                  onClick={() => handleNavigation("about")}
+                <a
+                  href="#about"
                   className={
                     allPagesContext.activePage === "about" ? "active" : ""
                   }
                 >
                   {TEXTS[language].about}
-                </button>
+                </a>
               ) : (
                 <Link
                   to="/about"
@@ -89,14 +89,14 @@ const Header = ({ allPagesContext }) => {
             </li>
             <li>
               {allPagesContext && allPagesContext.showAllPages ? (
-                <button
-                  onClick={() => handleNavigation("services")}
+                <a
+                  href="#services"
                   className={
                     allPagesContext.activePage === "services" ? "active" : ""
                   }
                 >
                   {TEXTS[language].services}
-                </button>
+                </a>
               ) : (
                 <Link
                   to="/services"
@@ -108,14 +108,14 @@ const Header = ({ allPagesContext }) => {
             </li>
             <li>
               {allPagesContext && allPagesContext.showAllPages ? (
-                <button
-                  onClick={() => handleNavigation("portfolio")}
+                <a
+                  href="#portfolio"
                   className={
                     allPagesContext.activePage === "portfolio" ? "active" : ""
                   }
                 >
                   {TEXTS[language].portfolio}
-                </button>
+                </a>
               ) : (
                 <Link
                   to="/portfolio"
@@ -127,14 +127,14 @@ const Header = ({ allPagesContext }) => {
             </li>
             <li>
               {allPagesContext && allPagesContext.showAllPages ? (
-                <button
-                  onClick={() => handleNavigation("contact")}
+                <a
+                  href="#contact"
                   className={
                     allPagesContext.activePage === "contact" ? "active" : ""
                   }
                 >
                   {TEXTS[language].contact}
-                </button>
+                </a>
               ) : (
                 <Link
                   to="/contact"

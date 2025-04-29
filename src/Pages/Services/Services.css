@@ -1,6 +1,6 @@
 .servicesPage {
   padding: 15vh 6vw 11.5vh 10vw;
-  background-color: #f0e4d7; /* Changed from antiquewhite to a slightly darker shade */
+  background-color: rgba(255, 248, 240, 0.85); /* semi-transparent overlay */
   position: relative;
   overflow: hidden;
 }

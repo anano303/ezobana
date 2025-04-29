@@ -4,7 +4,15 @@ import { TEXTS } from "../../Languages.js";
 import { LanguageContext } from "../../LanguageContext.js";
 import { Link } from "react-router-dom";
 import homeBannerImage from "../../assets/playful-games-birthday-party-nature-background.png";
-import VideoPlayer from "../../Components/VideoPlayer/VideoPlayer";
+// Import all gallery images
+import gallery1 from "../../assets/imagesMain/472336843_122160478232284809_7464877080578904187_n.jpg";
+import gallery2 from "../../assets/imagesMain/472719518_122160478688284809_7926994663759402226_n (1).jpg";
+import gallery3 from "../../assets/imagesMain/472719518_122160478688284809_7926994663759402226_n.jpg";
+import gallery4 from "../../assets/imagesMain/472749414_122160478700284809_3487736465589202652_n.jpg";
+import gallery5 from "../../assets/imagesMain/6G8A6596.jpg";
+import gallery6 from "../../assets/imagesMain/473388264_122161859876284809_8330218571272847525_n.jpg";
+import gallery7 from "../../assets/imagesMain/6G8A6625.jpg";
+import gallery8 from "../../assets/imagesMain/6G8A6838 - Copy.jpg";
 
 const Home = () => {
   const { language } = useContext(LanguageContext);
@@ -13,9 +21,28 @@ const Home = () => {
     document.body.className = language;
   }, [language]);
 
+  const galleryImages = [
+    { src: gallery1, alt: "Ezobana Gallery 1" },
+    { src: gallery2, alt: "Ezobana Gallery 2" },
+    { src: gallery3, alt: "Ezobana Gallery 3" },
+    { src: gallery4, alt: "Ezobana Gallery 4" },
+    { src: gallery5, alt: "Ezobana Gallery 5" },
+    { src: gallery6, alt: "Ezobana Gallery 6" },
+    { src: gallery7, alt: "Ezobana Gallery 7" },
+    { src: gallery8, alt: "Ezobana Gallery 8" },
+  ];
+
   return (
     <div className="homePage" id="home">
       <div className="home-content">
+        <div className="home-image-container">
+          <img
+            src={homeBannerImage}
+            alt="Ezobana"
+            className="home-image"
+            loading="eager" // Explicitly load main image eagerly
+          />
+        </div>
         <div className="home-text-container">
           <div className="text-content">
             <h1 className="home-title">
@@ -44,12 +71,24 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <div className="video-wrapper-container">
-            <VideoPlayer videoType="youtube" videoId="igBjxL5iwUc" />
-          </div>
         </div>
-        <div className="home-image-container">
-          <img src={homeBannerImage} alt="Ezobana" className="home-image" />
+      </div>
+
+      <div className="home-gallery">
+        <h3 className="gallery-title">
+          {language === "ge" ? "ჩვენი გალერეა" : "Our Gallery"}
+        </h3>
+        <div className="gallery-grid">
+          {galleryImages.map((image, index) => (
+            <div key={index} className="gallery-item">
+              <img
+                src={image.src}
+                alt={image.alt}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          ))}
         </div>
       </div>
 

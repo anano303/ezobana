@@ -1,5 +1,5 @@
 .portfolio {
-  background-color: antiquewhite;
+  background-color: rgba(255, 248, 240, 0.85); /* semi-transparent overlay */
   padding: 15vh 6vw 11.5vh 10vw;
   position: relative;
   overflow: hidden;

@@ -2,21 +2,26 @@
 
 body {
   margin: 0;
+  background: url("./assets/foni.jpg") no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
 body.en {
   font-family: "supreme", sans-serif !important;
-
   background-color: antiquewhite;
 }
+
 body.ge {
   font-family: "BPGNinoMtavruliNormal", sans-serif;
   background-color: antiquewhite;
 }
+
 @font-face {
   font-family: "BPGNinoMtavruliNormal";
   src: url("./bpg_nino_mtavruli_normal.ttf");

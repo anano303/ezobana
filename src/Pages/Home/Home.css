@@ -1,129 +1,203 @@
 .homePage {
-  position: relative;
-  background-color: antiquewhite;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 0;
-  overflow: hidden;
+  position: relative;
+  overflow-x: hidden;
 }
 
+/* Hero section styles */
 .home-content {
   display: flex;
-  flex-direction: column-reverse;
-  width: 100%;
-  height: 100%;
-  padding: 60px 20px 20px;
-}
-
-.home-text-container {
-  flex: 1;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  z-index: 2;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 30px 0;
-  gap: 30px;
-}
-
-/* Text content styling */
-.text-content {
   width: 100%;
-}
-
-.home-title {
-  font-size: clamp(42px, 6vw, 72px);
-  font-weight: 800;
-  color: #d96caa;
-  margin-bottom: 16px;
-  line-height: 1.1;
-  position: relative;
-  display: inline-block;
-}
-
-.home-title::after {
-  content: "";
-  position: absolute;
-  width: 30%;
-  height: 4px;
-  background: #169f49;
-  bottom: -5px;
-  left: 0;
-}
-
-.home-subtitle {
-  font-size: clamp(24px, 4vw, 36px);
-  font-weight: 700;
-  color: #169f49;
-  margin-bottom: 24px;
-  line-height: 1.2;
-}
-
-.home-description {
-  font-size: clamp(16px, 2.5vw, 20px);
-  color: #333;
-  line-height: 1.6;
-  margin-bottom: 32px;
-  max-width: 90%;
-}
-
-.home-buttons {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.home-button {
-  padding: 12px 24px;
-  border-radius: 30px;
-  font-weight: 600;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: none;
-}
-
-.primary-button {
-  background-color: #d96caa;
-  color: white;
-}
-
-.primary-button:hover {
-  background-color: #c75596;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(217, 108, 170, 0.3);
-}
-
-.secondary-button {
-  background-color: #169f49;
-  color: white;
-}
-
-.secondary-button:hover {
-  background-color: #0e8a3d;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(22, 159, 73, 0.3);
 }
 
 .home-image-container {
   width: 100%;
+  height: auto;
+  /* min-height: 60vh; */
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  background: rgba(255, 248, 240, 0.95);
+  padding: 0;
   overflow: hidden;
-  max-height: 50vh;
-  border-radius: 20px;
-  margin-bottom: 20px;
 }
 
 .home-image {
   width: 100%;
   height: 100%;
+  object-fit: contain;
+  object-position: center;
+  margin: 0;
+}
+
+.home-text-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 60px 20px;
+  margin-top: -2px;
+}
+
+.text-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.home-title {
+  font-size: clamp(42px, 6vw, 72px);
+  color: #d96caa;
+  margin-bottom: 20px;
+}
+
+.home-subtitle {
+  font-size: clamp(24px, 3vw, 36px);
+  color: #169f49;
+  margin-bottom: 20px;
+}
+
+.home-description {
+  font-size: clamp(16px, 2vw, 20px);
+  margin-bottom: 30px;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 30px;
+}
+
+.home-buttons {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.home-button {
+  padding: clamp(15px, 2vw, 20px) clamp(30px, 3vw, 40px);
+  border-radius: 50px;
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 200px;
+  text-transform: uppercase;
+}
+
+/* Content below hero section */
+.home-gallery {
+  padding: 80px 20px;
+  background: rgba(255, 255, 255, 0.9);
+  margin-top: -2px;
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: clamp(32px, 4vw, 48px);
+  color: #d96caa;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.gallery-title::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #d96caa 0%, #169f49 100%);
+  border-radius: 2px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.gallery-item {
+  aspect-ratio: 1;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Hover effects */
+.gallery-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(217, 108, 170, 0.2);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.primary-button {
+  background: linear-gradient(45deg, #d96caa, #e985bd);
+  color: white;
+  box-shadow: 0 4px 15px rgba(217, 108, 170, 0.3);
+}
+
+.secondary-button {
+  background: linear-gradient(45deg, #169f49, #1abc5e);
+  color: white;
+  box-shadow: 0 4px 15px rgba(22, 159, 73, 0.3);
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media screen and (min-width: 768px) {
+  .home-text-container {
+    padding: 80px 40px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .home-text-container {
+    padding: 100px 60px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* .home-image-container {
+    min-height: 40vh;
+    padding: 10px 0;
+  } */
+
+  .home-image {
+    max-height: none;
+  }
+
+  .home-button {
+    min-width: 180px;
+    padding: 15px 30px;
+  }
 }
 
 /* Decorative elements */
@@ -178,145 +252,9 @@
   }
 }
 
-/* Media queries for responsive design */
-@media screen and (min-width: 768px) {
-  .home-content {
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column-reverse;
-  }
-
-  .home-text-container {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 3vw; /* Reduced side padding */
-    margin: 0;
-    gap: 40px;
-    max-width: 95%; /* Increased from 90% to use more screen width */
-  }
-
-  .text-content {
-    width: 60%; /* Slightly wider than before */
-  }
-
-  .home-title,
-  .home-subtitle,
-  .home-description,
-  .home-buttons {
-    width: 100%; /* Take full width of their container */
-  }
-
-  .home-image-container {
-    flex: 1;
-    max-height: none;
-    height: 100vh;
-    margin-bottom: 0;
-    border-radius: 0;
-  }
-
-  .home-image {
-    height: 100%;
-    object-position: center;
-  }
-
-  .video-wrapper-container {
-    width: 35%; /* Slightly narrower to give more space to text */
-    margin: 0;
-    box-shadow: 0 15px 40px rgba(217, 108, 170, 0.15);
-    border: 3px solid antiquewhite;
-    border-radius: 15px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .home-text-container {
-    padding: 0 4vw; /* Reduced left padding from 8vw */
-    gap: 50px;
-  }
-
-  .text-content {
-    width: 65%; /* Even wider on larger screens */
-  }
-
-  .video-wrapper-container {
-    width: 30%;
-    position: relative;
-  }
-
-  .video-wrapper-container::before {
-    content: "✨";
-    position: absolute;
-    font-size: 2rem;
-    top: -15px;
-    left: -15px;
-    z-index: 3;
-  }
-
-  .video-wrapper-container::after {
-    content: "🎮";
-    position: absolute;
-    font-size: 2rem;
-    bottom: -15px;
-    right: -15px;
-    z-index: 3;
-  }
-
-  .home-title {
-    margin-bottom: 24px;
-  }
-
-  .home-description {
-    margin-bottom: 40px;
-  }
-
-  .decoration-item {
-    font-size: 6rem;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .home-text-container {
-    max-width: 1300px; /* Increased from 1200px */
-    padding: 0 2vw; /* Further reduced padding on very large screens */
-  }
-
-  .text-content {
-    width: 68%; /* Maximum width for text on very large screens */
-  }
-
-  .video-wrapper-container {
-    width: 28%; /* Smaller proportion for video on large screens */
-  }
-}
-
 /* Fix for iOS height issue */
 @supports (-webkit-touch-callout: none) {
   .home-content {
     min-height: -webkit-fill-available;
   }
-}
-
-/* Video section styling */
-.video-wrapper-container {
-  width: 100%;
-  margin: 20px 0;
-  position: relative;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.video-wrapper-container:hover {
-  transform: translateY(-5px);
-}
-
-/* Hide old video containers */
-.desktop-video-container,
-.mobile-video-container,
-.video-column,
-.home-video-section {
-  display: none;
 }

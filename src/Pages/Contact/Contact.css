@@ -1,5 +1,5 @@
 .contactPage {
-  background-color: antiquewhite;
+  background-color: rgba(255, 248, 240, 0.85); /* semi-transparent overlay */
   position: relative;
   overflow: hidden;
 }

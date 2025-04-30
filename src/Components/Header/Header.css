@@ -109,7 +109,7 @@
 .desktop-links li a:hover,
 .desktop-links li a.active {
   color: #169f49;
-  text-decoration: line-through 1px;
+  /* text-decoration: line-through 1px; */
   text-decoration-color: #169f49;
 }
 

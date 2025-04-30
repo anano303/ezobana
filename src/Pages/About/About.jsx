@@ -48,7 +48,7 @@ const About = () => {
         </div>
         <p>
             {language === "ge"
-              ? "ეზო —რომელიც ჩვენი დიდი შრომით, დიდი სიყვარულითაა გაშენებული. ყველა ბუჩქი, ბილიკი და კუთხე ჩვენივე ხელით შექმნილი, მოვლილი. გადავყწვიტეთ ეს საოცარი ეზო გაგვეზიარებინა ყველაზე პატარა ადამიანებისთვის და მათი მშობლებისთვის!"
+              ? "ეზო —რომელიც ჩვენი დიდი შრომით, დიდი სიყვარულითაა გაშენებული. ყველა ბუჩქი, ბილიკი და კუთხე ჩვენივე ხელით შექმნილი, მოვლილი. გადავყწვიტეთ ეს ყველაფერი გაგვეზიარებინა ყველაზე პატარა ადამიანებისთვის და მათი მშობლებისთვის!"
               : "A yard that was established with our hard work and great love. Every bush, path, and corner was created and cared for by our own hands. We decided to share this amazing yard with the smallest people and their parents!"}
           </p>
           <p>

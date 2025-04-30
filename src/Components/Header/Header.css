@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: antiquewhite;
+  background: #fff;
   padding: clamp(15px, 4vw, 50px) clamp(15px, 4vw, 50px);
   width: 100%;
   z-index: 6;

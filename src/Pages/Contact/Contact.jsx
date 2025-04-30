@@ -36,7 +36,7 @@ const Contact = () => {
             <h2>ეზობანა</h2>
             <p>
               <strong>{TEXTS[language].address}:</strong>{" "}
-              {language === "ge" ? "თბილისი, საქართველო" : "Tbilisi, Georgia"}
+              {language === "ge" ? "თბილისი, ილია შეყლაშვილის ქ. 15 ( ტოიოტას ცენტრის უკან)" : "Tbilisi, Ilia Sheklashvili St. 15 (behind Toyota Center) "}
             </p>
             <p>
               <strong>{TEXTS[language].phone}:</strong> +995 558 248 414

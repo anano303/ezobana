@@ -12,24 +12,30 @@ import additionalServiceImg from "../../assets/ეზობანა 6.png";
 import adultsProgram from "../../assets/ეზობანა 5.png";
 import schoolsProgram from "../../assets/სკოლებს და ბაღს.png";
 
+import { FaGamepad, FaFutbol, FaFootballBall } from "react-icons/fa";
+import { MdSchool, MdLocalActivity, MdTheaterComedy } from "react-icons/md";
+
 const servicesData = [
   {
     id: "01",
     titleKeyGe: 'პროგრამა „ეზოს თამაშები"',
     titleKeyEn: 'Program "Yard Games"',
     imageUrl: programImage,
+    icon: <FaGamepad className="card-icon" />,
   },
   {
     id: "02",
     titleKeyGe: 'პროგრამა „ფეხბურთელი"',
     titleKeyEn: 'Program "Football Player" ',
     imageUrl: programImage2,
+    icon: <FaFutbol className="card-icon" />,
   },
   {
     id: "03",
     titleKeyGe: 'პროგრამა "მორაგბე"',
     titleKeyEn: '"Rugby Player"',
     imageUrl: programImage3,
+    icon: <FaFootballBall className="card-icon" />,
   },
 ];
 
@@ -39,18 +45,21 @@ const additionalServicesData = [
     titleKeyGe: "შეთავაზება სკოლებს და ბაღებს",
     titleKeyEn: "Offers for Schools and Kindergartens",
     imageUrl: schoolsProgram,
+    icon: <MdSchool className="card-icon" />,
   },
   {
     id: "add-01",
     titleKeyGe: "დამატებითი სერვისები",
     titleKeyEn: "Additional Services",
     imageUrl: additionalServiceImg,
+    icon: <MdLocalActivity className="card-icon" />,
   },
   {
     id: "add-02",
     titleKeyGe: "ანიმაციური გმირები",
     titleKeyEn: "Animated Characters",
     imageUrl: adultsProgram,
+    icon: <MdTheaterComedy className="card-icon" />,
   },
 ];
 
@@ -113,13 +122,7 @@ const Services = () => {
               className="full-card-image"
               onClick={() => handleImageClick(service.imageUrl)}
             >
-              <img
-                src={service.imageUrl}
-                alt={
-                  language === "ge" ? service.titleKeyGe : service.titleKeyEn
-                }
-                className="service-image"
-              />
+              {service.icon}
               <div className="title-overlay">
                 <h3 className="projectCapture">
                   {language === "ge" ? service.titleKeyGe : service.titleKeyEn}
@@ -142,11 +145,7 @@ const Services = () => {
                 className="full-card-image"
                 onClick={() => handleAdditionalServiceClick(item.id)}
               >
-                <img
-                  src={item.imageUrl}
-                  alt={language === "ge" ? item.titleKeyGe : item.titleKeyEn}
-                  className="service-image"
-                />
+                {item.icon}
                 <div className="title-overlay">
                   <h3 className="projectCapture">
                     {language === "ge" ? item.titleKeyGe : item.titleKeyEn}

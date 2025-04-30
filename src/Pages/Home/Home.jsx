@@ -7,7 +7,7 @@ import homeBannerImage from "../../assets/playful-games-birthday-party-nature-ba
 import { cacheImage, getCachedImage } from "../../Utils/imageCache";
 // Import all gallery images
 import gallery1 from "../../assets/imagesMain/472336843_122160478232284809_7464877080578904187_n.jpg";
-import gallery2 from "../../assets/imagesMain/472719518_122160478688284809_7926994663759402226_n (1).jpg";
+import gallery2 from "../../assets/imagesMain/6G8A6669.jpg";
 import gallery3 from "../../assets/imagesMain/472719518_122160478688284809_7926994663759402226_n.jpg";
 import gallery4 from "../../assets/imagesMain/472749414_122160478700284809_3487736465589202652_n.jpg";
 import gallery5 from "../../assets/imagesMain/6G8A6596.jpg";

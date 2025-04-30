@@ -12,8 +12,13 @@ import additionalServiceImg from "../../assets/ეზობანა 6.png";
 import adultsProgram from "../../assets/ეზობანა 5.png";
 import schoolsProgram from "../../assets/სკოლებს და ბაღს.png";
 
-import { FaGamepad, FaFutbol, FaFootballBall } from "react-icons/fa";
-import { MdSchool, MdLocalActivity, MdTheaterComedy } from "react-icons/md";
+import {
+  MdOutlinePark,
+  MdSchool,
+  MdLocalActivity,
+  MdTheaterComedy,
+} from "react-icons/md";
+import { FaFutbol, FaFootballBall } from "react-icons/fa";
 
 const servicesData = [
   {
@@ -21,7 +26,7 @@ const servicesData = [
     titleKeyGe: 'პროგრამა „ეზოს თამაშები"',
     titleKeyEn: 'Program "Yard Games"',
     imageUrl: programImage,
-    icon: <FaGamepad className="card-icon" />,
+    icon: <MdOutlinePark className="card-icon" />,
   },
   {
     id: "02",

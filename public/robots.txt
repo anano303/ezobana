@@ -1,0 +1,13 @@
+# robots.txt for ezobana.ge
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /draft/
+
+# Crawl-delay directive for better server load management
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://ezobana.ge/sitemap.xml

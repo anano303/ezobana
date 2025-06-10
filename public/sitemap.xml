@@ -5,32 +5,32 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://ezobana.ge/</loc>
-    <lastmod>2025-06-10T06:37:03.337Z</lastmod>
-    <priority>1</priority>
+    <lastmod>2025-06-10T06:43:49.849Z</lastmod>
+    <priority>1.00</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://ezobana.ge/about</loc>
-    <lastmod>2025-06-10T06:37:03.337Z</lastmod>
-    <priority>0.8</priority>
+    <lastmod>2025-06-10T06:43:49.849Z</lastmod>
+    <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://ezobana.ge/services</loc>
-    <lastmod>2025-06-10T06:37:03.337Z</lastmod>
-    <priority>0.8</priority>
+    <lastmod>2025-06-10T06:43:49.849Z</lastmod>
+    <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://ezobana.ge/portfolio</loc>
-    <lastmod>2025-06-10T06:37:03.337Z</lastmod>
-    <priority>0.8</priority>
+    <lastmod>2025-06-10T06:43:49.849Z</lastmod>
+    <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://ezobana.ge/contact</loc>
-    <lastmod>2025-06-10T06:37:03.337Z</lastmod>
-    <priority>0.8</priority>
+    <lastmod>2025-06-10T06:43:49.849Z</lastmod>
+    <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>

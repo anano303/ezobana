@@ -1,10 +1,9 @@
 import "./Home.css";
 import { useContext, useEffect, useState } from "react";
-import { TEXTS } from "../../Languages.js";
 import { LanguageContext } from "../../LanguageContext.js";
 import { Link } from "react-router-dom";
 import homeBannerImage from "../../assets/playful-games-birthday-party-nature-background.png";
-import { cacheImage, getCachedImage } from "../../Utils/imageCache";
+import { getCachedImage } from "../../Utils/imageCache";
 // Import all gallery images
 import gallery1 from "../../assets/imagesMain/472336843_122160478232284809_7464877080578904187_n.jpg";
 import gallery2 from "../../assets/imagesMain/6G8A6669.jpg";
@@ -68,6 +67,7 @@ const Home = () => {
         }
       });
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import closeImage from "../../assets/icons8-x-50.png";
 import toggleImage from "../../assets/icons8-menu-48.png";
@@ -11,7 +11,6 @@ const Navbar = ({ allPagesContext }) => {
   const [clickedLink, setClickedLink] = useState(null);
   const { language } = useContext(LanguageContext);
   const location = useLocation();
-  const navigate = useNavigate();
 
   const langContext = useContext(LanguageContext);
 

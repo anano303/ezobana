@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  background: url("./assets/foni.jpg") no-repeat center center fixed;
+  background: url("./assets/foni.webp") no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
 }

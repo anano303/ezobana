@@ -4,7 +4,7 @@ import { TEXTS } from "../../Languages.js";
 import { LanguageContext } from "../../LanguageContext.js";
 import { Link } from "react-router-dom";
 import { Element } from "react-scroll";
-import nikoImage from "../../assets/niko.jpg"; // Updated Niko's image
+import nikoImage from "../../assets/niko.webp";
 
 const About = () => {
   const { language } = useContext(LanguageContext);
@@ -24,7 +24,13 @@ const About = () => {
 
         <div className="about-story-section">
           <div className="story-image-container">
-            <img src={nikoImage} alt="Niko" className="niko-image" />
+            <img
+              src={nikoImage}
+              alt="Niko"
+              className="niko-image"
+              loading="lazy"
+              decoding="async"
+            />
             <div className="image-caption">
               {language === "ge"
                 ? "ნიკო - ჩვენი შთაგონება"
@@ -44,26 +50,25 @@ const About = () => {
                 : "We remembered what we loved, which games made us happy. It turned out that our favorite place was the yard! A yard that was associated with lots of magic and joy."}
             </p>
           </div>
-        
         </div>
         <p>
-            {language === "ge"
-              ? "ეზო —რომელიც ჩვენი დიდი შრომით, დიდი სიყვარულითაა გაშენებული. ყველა ბუჩქი, ბილიკი და კუთხე ჩვენივე ხელით შექმნილი, მოვლილი. გადავყწვიტეთ ეს ყველაფერი გაგვეზიარებინა ყველაზე პატარა ადამიანებისთვის და მათი მშობლებისთვის!"
-              : "A yard that was established with our hard work and great love. Every bush, path, and corner was created and cared for by our own hands. We decided to share this amazing yard with the smallest people and their parents!"}
-          </p>
-          <p>
-            {language === "ge"
-              ? "გავაერთიანეთ ჩვენი რესურსები, ცოდნა, გამოცდილება, სიყვარული ბავშვებისადმი და შევქმენით -"
-              : "We combined our resources, knowledge, experience, love for children and created -"}
-            <span className="highlight">
-              {language === "ge" ? ' „ეზობანა"' : ' "Ezobana"'}
-            </span>
-          </p>
-          <p>
-            {language === "ge"
-              ? "სივრცე, სადაც ყველა ბავშვი ლაღია, შემოქმედია, უპირობოდ მიღებულია. ყოველი პატარის სტუმრობა — მათი დასამახსოვრებელი თავგადასავალია!"
-              : "A space where every child is free, creative, and unconditionally accepted. Every little one's visit is their memorable adventure!"}
-          </p>
+          {language === "ge"
+            ? "ეზო —რომელიც ჩვენი დიდი შრომით, დიდი სიყვარულითაა გაშენებული. ყველა ბუჩქი, ბილიკი და კუთხე ჩვენივე ხელით შექმნილი, მოვლილი. გადავყწვიტეთ ეს ყველაფერი გაგვეზიარებინა ყველაზე პატარა ადამიანებისთვის და მათი მშობლებისთვის!"
+            : "A yard that was established with our hard work and great love. Every bush, path, and corner was created and cared for by our own hands. We decided to share this amazing yard with the smallest people and their parents!"}
+        </p>
+        <p>
+          {language === "ge"
+            ? "გავაერთიანეთ ჩვენი რესურსები, ცოდნა, გამოცდილება, სიყვარული ბავშვებისადმი და შევქმენით -"
+            : "We combined our resources, knowledge, experience, love for children and created -"}
+          <span className="highlight">
+            {language === "ge" ? ' „ეზობანა"' : ' "Ezobana"'}
+          </span>
+        </p>
+        <p>
+          {language === "ge"
+            ? "სივრცე, სადაც ყველა ბავშვი ლაღია, შემოქმედია, უპირობოდ მიღებულია. ყოველი პატარის სტუმრობა — მათი დასამახსოვრებელი თავგადასავალია!"
+            : "A space where every child is free, creative, and unconditionally accepted. Every little one's visit is their memorable adventure!"}
+        </p>
       </div>
       <Link to="/services">
         <button className="aboutBtn">{TEXTS[language].more}</button>

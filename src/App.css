@@ -9,6 +9,11 @@
   scrollbar-color: transparent transparent;
 }
 
+/* Optimize image rendering globally */
+img {
+  content-visibility: auto;
+}
+
 .homeArrow {
   position: fixed; /* Change from absolute to fixed */
   left: 50%;
